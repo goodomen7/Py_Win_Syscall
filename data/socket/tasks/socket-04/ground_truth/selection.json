@@ -1,0 +1,14 @@
+{
+  "sample_id": "sample04",
+  "reasons": [
+    "候选3的F1核心功能描述清晰且与日志中网络套接字操作一致，优于候选1和候选2的泛化描述。",
+    "候选3的F3严格遵循‘动作+对象’格式（绑定并监听服务端套接字），候选1的‘创建+监听套接字’对象不明确，候选2的‘发送IO控制码到设备’动作对象不匹配。",
+    "候选3的L1调用链层级合规（代码→库函数/运行时→系统调用，共2跳），候选1的L1包含‘AFD/WS2_32设备IOCTL’额外跳且表述冗余，候选2的L1缺少运行时/库函数层。",
+    "候选3的L2和L3选项与理由清晰对应，候选1的L2理由‘create_server会进行bind/listen触发IOCTL’表述模糊，候选2的L2理由‘该函数封装了创建、绑定和监听套接字，直接触发调用。’过于笼统。",
+    "候选1的F2理由‘网络套接字设备控制’未明确说明类别D的具体含义，候选3的F2理由‘create_server属于网络套接字操作’更直接且可判分。",
+    "候选2的F3‘发送IO控制码到设备’不符合‘动作+对象’格式，对象应为具体操作目标而非泛化设备。",
+    "候选1的L1引入无来源的库/函数‘_socket.socket/bind/listen(WinSock)’与日志不一致，候选3的L1基于已知的ws2_32.dll和AFD驱动更合理。",
+    "候选3的结论行包含命中代码行原文且无改写，与候选1和候选2一致，但整体结构更完整、约束最清晰，便于后续评测模型逐项判定。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[srv = socket.create_server((\\\"127.0.0.1\\\", 0))]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtDeviceIoControlFile\",\"summary\":\"向设备（套接字）发送I/O控制码以执行bind/listen等网络操作\"},\"F2\":{\"option\":\"D\",\"reason\":\"create_server属于网络套接字操作\"},\"F3\":\"绑定并监听服务端套接字\"},\"logic\":{\"L1\":\"socket.create_server()调用bind+listen → ws2_32.dll通过AFD驱动下发控制码 → NtDeviceIoControlFile\",\"L2\":{\"option\":\"A\",\"reason\":\"create_server内部直接调用bind和listen，唯一触发该设备控制调用的操作\"},\"L3\":{\"option\":\"A\",\"reason\":\"create_server无条件执行bind+listen，不依赖任何分支或缓冲机制\"}}}"
+}

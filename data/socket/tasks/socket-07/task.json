@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-07",
+  "library": "socket",
+  "target_line": "results = socket.getaddrinfo(\"localhost\", 80, socket.AF_INET, socket.SOCK_STREAM)",
+  "target_syscall": null,
+  "num_models_answered": 11,
+  "num_models_scored": 0,
+  "has_best_answer": false,
+  "has_scores": false
+}

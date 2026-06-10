@@ -1,0 +1,14 @@
+{
+  "sample_id": "sample02",
+  "reasons": [
+    "候选1的conclusion严格包含命中代码行原文，未做明显改写，符合规范要求。",
+    "候选1的F1核心功能描述简短清晰，与日志匹配，且未过长过散。",
+    "候选1的F3为简洁的'动作+对象'格式，未带过多解释，符合规范。",
+    "候选1的L1层级合规，体现了'代码行为→库函数/运行时机制→系统调用'的两跳结构。",
+    "候选2的conclusion使用了Markdown代码块格式`key = msvcrt.getch()...`，与规范要求的纯文本括号格式不一致，可能影响后续判分。",
+    "候选2的L3选项为'A'，理由描述为'无条件调用，总是尝试读取'，这与系统调用日志中可能存在的阻塞等待条件不完全一致，约束描述不如候选1的'取决于输入到达与调度'准确。",
+    "候选3的conclusion省略了代码行中的注释部分'# Wait for and get a single character'，未完整包含原文，不符合规范。",
+    "候选3的L1描述'Win32 ReadFile/ReadConsoleInput → NtReadFile'中提及了'ReadConsoleInput'，这可能引入了无来源或与日志不一致的库/函数细节，不如候选1的'ReadFile/console驱动'更通用和稳妥。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[key = msvcrt.getch()  # Wait for and get a single character]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtReadFile\",\"summary\":\"从文件/设备句柄读取数据\"},\"F2\":{\"option\":\"A\",\"reason\":\"控制台输入属设备读操作\"},\"F3\":\"读取控制台输入\"},\"logic\":{\"L1\":\"key = msvcrt.getch() → msvcrt.getch(VC运行库控制台读) → ReadFile/console驱动 → NtReadFile\",\"L2\":{\"option\":\"A\",\"reason\":\"getch本质执行阻塞式控制台读取\"},\"L3\":{\"option\":\"D\",\"reason\":\"是否触发读取取决于输入到达与调度\"}}}"
+}

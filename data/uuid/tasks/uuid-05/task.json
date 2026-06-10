@@ -1,0 +1,10 @@
+{
+  "task_id": "uuid-05",
+  "library": "uuid",
+  "target_line": "result = uuid.getnode()",
+  "target_syscall": "NtDeviceIoControlFile",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

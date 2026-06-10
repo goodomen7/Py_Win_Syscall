@@ -1,0 +1,1 @@
+os.fchmod(fd, 0o644)

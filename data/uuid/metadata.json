@@ -1,0 +1,13 @@
+{
+  "library": "uuid",
+  "num_tasks": 5,
+  "num_scored_tasks": 5,
+  "num_tasks_with_best_answer": 5,
+  "tasks": [
+    "uuid-01",
+    "uuid-02",
+    "uuid-03",
+    "uuid-04",
+    "uuid-05"
+  ]
+}

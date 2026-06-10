@@ -1,0 +1,14 @@
+{
+  "sample_id": "sample03",
+  "reasons": [
+    "候选1的conclusion包含命中代码行原文，格式完全对齐规范要求。",
+    "候选1的facts结构完整，包含F1、F2、F3，且F3为‘动作+对象’的‘获取+服务器证书’，符合规范。",
+    "候选1的logic结构完整，包含L1、L2、L3，且L1调用链为‘代码行为 → 库函数/运行时机制 → 系统调用’，层级不超过2跳，符合规范。",
+    "候选1的F1核心功能‘向设备驱动发送IO控制请求’简短且与系统调用名称匹配。",
+    "候选2的F3‘发送网络控制请求’虽为‘动作+对象’，但‘网络控制请求’对象描述较泛，不如候选1的‘服务器证书’具体且与代码行为更一致。",
+    "候选2的L1调用链‘ssl.get_server_certificate((host, port)) → Winsock API → NtDeviceIoControlFile’缺少明确的中间封装层（如Python ssl/_ssl），层级描述不如候选1清晰。",
+    "候选2的L3选项为‘A’，理由‘代码顺序执行，该行无分支条件，必然会执行网络连接。’与系统调用日志可能存在的条件性（如网络连接成功与否）不完全一致，不如候选1的‘D’（依赖网络栈与握手过程）更准确。",
+    "候选1的L2选项‘A’与理由‘该行直接触发网络连接与握手’明确指向代码行，与结论一致，可判分性强。"
+  ],
+  "judge_best": "{ \"conclusion\": \"代码行[cert = ssl.get_server_certificate((host, port))]最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtDeviceIoControlFile\", \"summary\": \"向设备驱动发送IO控制请求\" }, \"F2\": { \"option\": \"D\", \"reason\": \"建立TLS连接涉及套接字IOCTL\" }, \"F3\": \"获取+服务器证书\" }, \"logic\": { \"L1\": \"cert = ssl.get_server_certificate((host, port)) → Python ssl/_ssl发起TLS握手并经socket模块操作 → winsock对套接字执行WSAIoctl/底层设备控制 → NtDeviceIoControlFile\", \"L2\": { \"option\": \"A\", \"reason\": \"该行直接触发网络连接与握手\" }, \"L3\": { \"option\": \"D\", \"reason\": \"是否发生由网络栈与握手过程决定\" } } }"
+}

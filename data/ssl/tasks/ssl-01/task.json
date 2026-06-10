@@ -1,0 +1,10 @@
+{
+  "task_id": "ssl-01",
+  "library": "ssl",
+  "target_line": "context = ssl.create_default_context()",
+  "target_syscall": "NtQueryKey",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

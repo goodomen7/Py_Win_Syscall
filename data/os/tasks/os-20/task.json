@@ -1,0 +1,10 @@
+{
+  "task_id": "os-20",
+  "library": "os",
+  "target_line": "os.set_handle_inheritable(handle, True)",
+  "target_syscall": "NtSetInformationObject",
+  "num_models_answered": 11,
+  "num_models_scored": 10,
+  "has_best_answer": true,
+  "has_scores": true
+}

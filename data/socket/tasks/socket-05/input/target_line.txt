@@ -1,0 +1,1 @@
+s2 = socket.fromfd(fd, socket.AF_INET, socket.SOCK_STREAM)

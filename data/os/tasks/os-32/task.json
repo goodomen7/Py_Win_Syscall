@@ -1,0 +1,10 @@
+{
+  "task_id": "os-32",
+  "library": "os",
+  "target_line": "os.rename(src_a, dst_a)\ntry:\n    os.rename(src_b, dst_b)\nexcept FileExistsError:\n    pass\nos.replace(src_c, dst_c)",
+  "target_syscall": "NtSetInformationFile",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

@@ -1,0 +1,15 @@
+=== Process info (PID 856, ETL: func_36.etl) ===
+
+=== Raw syscalls attributed via stackwalk (TID->PID, 3 python TIDs, MARKER WINDOW [389385..389749]) ===
+Marker window: 364 us; Process lifetime stackwalks=2520, in-window=5
+Total syscalls for PID 856: 5
+Unique service routines: 3  (resolved to symbol: 3)
+
+Top syscall service routines (kernel address  Image!Function):
+       3  0xfffff806181632a0  ntoskrnl.exe!NtDeviceIoControlFile
+       1  0xfffff8061815e910  ntoskrnl.exe!NtWaitForSingleObject
+       1  0xfffff806181886d0  ntoskrnl.exe!NtCreateFile
+
+=== Structured event-type counts (events tagged with PID 856) ===
+
+=== Top file paths touched (FileIo Create/Delete/Read/Write/Cleanup) ===

@@ -1,0 +1,1 @@
+os.access(tmp.name, os.R_OK)

@@ -1,0 +1,16 @@
+{
+  "sample_id": "sample14",
+  "reasons": [
+    "候选 2 的结论行完全符合规范，包含命中代码行原文且无改写。",
+    "候选 2 的 F1 核心功能描述简短且与日志匹配。",
+    "候选 2 的 F3 严格遵循“动作+对象”格式，无多余解释。",
+    "候选 2 的 L1 层级合规，仅 2 跳且包含封装层（ws2_32.dll!getservbyname）。",
+    "候选 2 的 L2 和 L3 均为清晰的单选式表达，便于判分。",
+    "候选 1 的 F3 格式正确，但 L1 超过 2 跳，包含过多中间步骤。",
+    "候选 1 的 L3 选项 C 与日志可能矛盾，因为缓存条件无来源。",
+    "候选 3 的 F3 违反格式，包含路径信息且非纯“动作+对象”。",
+    "候选 3 的 L1 引入无来源的“C运行时getservbyname()”，与日志不一致。",
+    "候选 3 的 L3 理由“无条件读取”可能过于绝对，约束空泛。"
+  ],
+  "judge_best": "候选 2: { \"conclusion\": \"代码行[port = socket.getservbyname(\"http\")]最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtReadFile\", \"summary\": \"从指定文件中读取数据\" }, \"F2\": { \"option\": \"A\", \"reason\": \"该调用用于读取文件内容\" }, \"F3\": \"读取 services文件\" }, \"logic\": { \"L1\": \"socket.getservbyname(\"http\") → ws2_32.dll!getservbyname → NtReadFile\", \"L2\": { \"option\": \"A\", \"reason\": \"该函数用于解析服务名，需读取services文件\" }, \"L3\": { \"option\": \"A\", \"reason\": \"代码被直接调用，无前置条件\" } } }"
+}

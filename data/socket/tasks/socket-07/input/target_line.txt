@@ -1,0 +1,1 @@
+results = socket.getaddrinfo("localhost", 80, socket.AF_INET, socket.SOCK_STREAM)

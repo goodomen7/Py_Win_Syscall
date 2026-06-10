@@ -1,0 +1,1 @@
+result = ssl.cert_time_to_seconds(test_time)

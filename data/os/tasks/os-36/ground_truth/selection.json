@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample36",
+  "reasons": [
+    "候选3的结论行格式完全正确，包含代码行原文且用方括号括起，便于评分模型直接判分。",
+    "候选3的facts和logic内部字段F1、F2、F3、L1、L2、L3齐全且无多余字段，结构完整。",
+    "候选3的F1核心功能描述清晰且与系统调用功能匹配，包含关键属性（大小、时间戳等），信息量适中。",
+    "候选3的F3为“查询文件元数据”，严格符合“动作+对象”的简洁格式要求，无多余解释。",
+    "候选3的L1调用链为“代码行为 → 库函数/运行时机制 → 系统调用”，层级清晰且恰好为2跳，符合规范。",
+    "候选1的L1中“CPython os.stat实现(GetFileInformationByHandleEx等)”引入了无来源的库函数（GetFileInformationByHandleEx），与日志未直接对应，可能引入歧义。",
+    "候选2的L1“os.stat(\"stat_target.txt\") → os.stat() → NtQueryInformationFile”中第二跳“os.stat()”与第一跳重复，未体现封装层或运行时机制，层级不清晰。",
+    "候选4的L1与候选1类似，引入了“GetFileInformationByHandle”等无来源函数，约束不够清晰。",
+    "候选5的结论行缺少方括号，格式为“代码行os.stat...”，不符合规范，可能导致判分困难。",
+    "候选5的L1“os.stat()函数调用 → Python内置os模块实现 → NtQueryInformationFile”中“Python内置os模块实现”描述过泛，未具体到函数或机制，可判分性较弱。",
+    "候选6的L1“CPython win32_stat内部打开句柄后调用GetFileInformationByHandleEx → NtQueryInformationFile”引入了“win32_stat”和“GetFileInformationByHandleEx”等具体实现细节，虽可能准确但过于具体且依赖特定平台，不如候选3的“Python os.stat()/_stat64”通用且清晰。",
+    "候选3的L2和L3选项均为A，理由清晰说明了为何是这行代码以及触发条件类型，且与结论一致，便于评分。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[os.stat(\\\"stat_target.txt\\\")]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtQueryInformationFile\",\"summary\":\"查询指定文件的元数据信息（大小、时间戳等属性）\"},\"F2\":{\"option\":\"A\",\"reason\":\"属于文件元数据查询，归类为文件/IO\"},\"F3\":\"查询文件元数据\"},\"logic\":{\"L1\":\"os.stat(\\\"stat_target.txt\\\") → Python os.stat()/_stat64 → NtQueryInformationFile\",\"L2\":{\"option\":\"A\",\"reason\":\"os.stat()是直接触发NtQueryInformationFile的唯一操作\"},\"L3\":{\"option\":\"A\",\"reason\":\"os.stat()无条件执行，不依赖任何分支或缓冲机制\"}}}"
+}

@@ -1,0 +1,1 @@
+os.link(tmp.name, link_path)

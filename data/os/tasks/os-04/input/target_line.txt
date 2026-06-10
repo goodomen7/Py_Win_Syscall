@@ -1,0 +1,1 @@
+os.putenv("BIGENV", "A" * (1024 * 1024))

@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample35",
+  "reasons": [
+    "候选1的conclusion格式完全对齐规范，使用方括号包裹代码行原文，无改写。",
+    "候选1的F1核心功能简短清晰，与系统调用日志匹配，未过度解释。",
+    "候选1的F3严格遵循“动作+对象”格式，为“发送数据”，无额外解释。",
+    "候选1的L1调用链层级合规，包含Python实现层、winsock层和系统调用层，未超过2跳。",
+    "候选1的L2和L3选项表达清晰，为单选式，且理由说明具体。",
+    "候选2的F1 summary过长，包含“用于套接字数据传输”等解释性内容，不够简短。",
+    "候选2的F3为“发送数据到TCP套接字”，对象部分带额外修饰，不符合“动作+对象”的简洁格式。",
+    "候选3的conclusion使用反引号包裹代码行，与规范要求的方括号格式不一致。",
+    "候选3的L1调用链缺少封装层或运行时层，仅“c.sendall() → Winsock send API → NtDeviceIoControlFile”可能跳数不足，未明确体现Python实现层。",
+    "候选3的L3理由“代码按顺序执行，此行调用无前置分支条件”过于空泛，未结合sendall函数特性说明触发条件。",
+    "候选1的L3选项C更准确，反映了sendall可能因缓冲或分段导致多次下发，与日志行为一致。",
+    "候选1整体结构完整，所有字段齐全，无多余或缺失，便于评分模型逐项判定。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[c.sendall(b\\\"hello world \\\" * 100)]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtDeviceIoControlFile\",\"summary\":\"对设备句柄执行I/O控制请求\"},\"F2\":{\"option\":\"D\",\"reason\":\"套接字发送走网络栈\"},\"F3\":\"发送数据\"},\"logic\":{\"L1\":\"c.sendall(...) → Python socket.sendall实现 → winsock send/WSASend → NtDeviceIoControlFile\",\"L2\":{\"option\":\"A\",\"reason\":\"sendall是触发内核发送的直接操作\"},\"L3\":{\"option\":\"C\",\"reason\":\"sendall可能分段/缓冲后多次下发\"}}}"
+}

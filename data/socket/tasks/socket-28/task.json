@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-28",
+  "library": "socket",
+  "target_line": "s.ioctl(socket.SIO_KEEPALIVE_VALS, (1, 10000, 3000))",
+  "target_syscall": "NtDeviceIoControlFile",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

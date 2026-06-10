@@ -1,0 +1,23 @@
+=== Process info (PID 8, ETL: func_01.etl) ===
+
+=== Raw syscalls attributed via stackwalk (TID->PID, 3 python TIDs, MARKER WINDOW [821795..822417]) ===
+Marker window: 622 us; Process lifetime stackwalks=4307, in-window=21
+Total syscalls for PID 8: 21
+Unique service routines: 11  (resolved to symbol: 11)
+
+Top syscall service routines (kernel address  Image!Function):
+       5  0xfffff806181873d0  ntoskrnl.exe!NtQueryInformationFile
+       4  0xfffff80618160090  ntoskrnl.exe!NtClose
+       3  0xfffff80618180100  ntoskrnl.exe!NtQueryVolumeInformationFile
+       2  0xfffff80617d0adb0  ntoskrnl.exe!NtSetInformationFile
+       1  0xfffff80618179510  ntoskrnl.exe!NtWriteFile
+       1  0xfffff8061815e910  ntoskrnl.exe!NtWaitForSingleObject
+       1  0xfffff806181578b0  ntoskrnl.exe!NtQueryInformationToken
+       1  0xfffff806181886d0  ntoskrnl.exe!NtCreateFile
+       1  0xfffff806180688c0  ntoskrnl.exe!NtOpenThreadTokenEx
+       1  0xfffff806181d3c00  ntoskrnl.exe!NtQueryDirectoryFile
+       1  0xfffff8061815d900  ntoskrnl.exe!NtOpenProcessTokenEx
+
+=== Structured event-type counts (events tagged with PID 8) ===
+
+=== Top file paths touched (FileIo Create/Delete/Read/Write/Cleanup) ===

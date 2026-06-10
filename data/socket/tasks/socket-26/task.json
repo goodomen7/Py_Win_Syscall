@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-26",
+  "library": "socket",
+  "target_line": "addr = s.getsockname()",
+  "target_syscall": "NtDeviceIoControlFile",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

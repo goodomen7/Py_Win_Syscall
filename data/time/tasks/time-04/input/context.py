@@ -1,0 +1,13 @@
+import time
+time.sleep(0.001)
+time.process_time()
+time.perf_counter()
+time.get_clock_info('monotonic')
+time.time()
+time.ctime(-1)
+time.monotonic()
+time.thread_time()
+time.asctime()
+time.mktime(time.localtime())
+time.localtime(-1)
+time.strftime('%Y-%m-%d')

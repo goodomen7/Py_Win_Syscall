@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample10",
+  "reasons": [
+    "候选1的conclusion格式完全符合规范，包含代码行原文且无多余符号",
+    "候选1的F1核心功能描述简短且与系统调用功能匹配",
+    "候选1的F3严格遵循“动作+对象”格式，无额外解释",
+    "候选1的L1调用链清晰包含“代码行为→库函数/运行时机制→系统调用”三层，且未超过2跳",
+    "候选2的conclusion使用了Markdown代码块符号`，与规范要求的纯文本格式不符",
+    "候选2的F1总结过长且包含冗余描述“各种信息”，不符合简短要求",
+    "候选2的L1调用链缺少具体的中间层（如SetNamedPipeHandleState），过于笼统",
+    "候选3的F3“设置管道阻塞模式”未明确区分动作与对象，不如候选1的“设置管道为非阻塞”清晰",
+    "候选3的L1调用链虽合规但中间层“SetNamedPipeHandleState”未体现CPython封装，不如候选1的“CPython os模块调用...”更贴近日志",
+    "候选1的L2和L3选项与理由清晰对应，且理由直接关联代码行行为",
+    "候选2的L2理由“os.set_blocking是唯一...”存在绝对化断言，可能引入无来源假设",
+    "候选3的F2理由“属文件/IO范畴”过于宽泛，不如候选1的“对管道句柄设置阻塞模式”具体可判分"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[os.set_blocking(r, False)]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtSetInformationFile\",\"summary\":\"设置文件句柄的状态信息\"},\"F2\":{\"option\":\"A\",\"reason\":\"对管道句柄设置阻塞模式\"},\"F3\":\"设置管道为非阻塞\"},\"logic\":{\"L1\":\"os.set_blocking(r, False) → CPython os模块调用SetNamedPipeHandleState/相关句柄控制 → ntdll调用NtSetInformationFile → NtSetInformationFile\",\"L2\":{\"option\":\"A\",\"reason\":\"该行直接修改句柄阻塞属性需SetInformation\"},\"L3\":{\"option\":\"A\",\"reason\":\"执行到该行即发起句柄状态设置\"}}}"
+}

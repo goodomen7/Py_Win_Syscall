@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample02",
+  "reasons": [
+    "候选1的F1核心功能描述简洁准确，符合规范要求。",
+    "候选1的F3严格遵循“动作+对象”格式，为“创建套接字对”。",
+    "候选1的L1调用链层级清晰，包含Python层、库封装层和驱动层，且未超过2跳。",
+    "候选1的L2/L3选项与理由逻辑一致，且与F2选项D（网络驱动IOCTL）形成连贯解释。",
+    "候选2的F1描述过长，包含额外解释“向设备驱动发送控制码，执行I/O操作。”，不符合简短要求。",
+    "候选2的F3“发送I/O控制到设备”未严格对应“创建套接字”的动作对象，格式有偏差。",
+    "候选2的L2选项B（模拟）与F2选项D（网络操作）理由不一致，逻辑链条断裂。",
+    "候选3的F1描述过长且过于宽泛，提及“实现WinSock全部网络socket操作”，与具体调用关联不紧密。",
+    "候选3的F3“创建+连接套接字对”包含两个动作，不符合“动作+对象”的单动作格式。",
+    "候选3的L1调用链“WinSock WSASocket/connect/accept封装层”引入了无来源的具体函数名（WSASocket等），与日志一致性存疑。",
+    "候选3的L2理由“唯一触发...的操作点”过于绝对，且选项A（直接发起）与socketpair通常的封装实现可能不符。",
+    "候选1整体结构完整，所有字段齐全，且与规范格式完全对齐，便于评分模型逐项判定。"
+  ],
+  "judge_best": "候选 1:\n{ \"conclusion\": \"代码行[s1, s2 = socket.socketpair(socket.AF_INET, socket.SOCK_STREAM)]最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtDeviceIoControlFile\", \"summary\": \"对设备句柄执行IO控制\" }, \"F2\": { \"option\": \"D\", \"reason\": \"socket创建涉及网络驱动IOCTL\" }, \"F3\": \"创建套接字对\" }, \"logic\": { \"L1\": \"socket.socketpair(...) → Python _socket.pyd/WinSock socketpair实现 → AFD驱动IOCTL请求 → NtDeviceIoControlFile\", \"L2\": { \"option\": \"C\", \"reason\": \"socketpair底层最终以IOCTL落到该调用\" }, \"L3\": { \"option\": \"A\", \"reason\": \"执行socketpair即会发起内核IO控制\" } } }"
+}

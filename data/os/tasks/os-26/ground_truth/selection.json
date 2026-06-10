@@ -1,0 +1,14 @@
+{
+  "sample_id": "sample26",
+  "reasons": [
+    "候选2结论行格式完全符合规范，包含代码行原文且无改写。",
+    "候选2的F1核心功能描述清晰且与日志匹配，长度适中。",
+    "候选2的F3严格遵循“动作+对象”格式，为“查询逻辑驱动器列表”。",
+    "候选2的L1层级合规，为“代码行为 → 库函数/运行时机制 → 系统调用”的两跳结构。",
+    "候选1的F3格式不正确，为“枚举+驱动器列表”，不符合严格的“动作+对象”要求。",
+    "候选1的L1层级超过两跳，包含“drives = os.listdrives() → Python os模块Windows实现枚举盘符 → 调用WinAPI打开/查询相关对象 → NtCreateFile”四跳。",
+    "候选1的L2选项D理由“同脚本多处文件操作也会触发NtCreateFile”与日志无关，引入了无来源的假设。",
+    "候选1的L3选项A理由“调用listdrives会立即执行枚举产生系统调用”约束描述空泛，不如候选2的“该代码行无分支或循环，会被直接执行”具体可判分。"
+  ],
+  "judge_best": "{ \"conclusion\": \"代码行drives = os.listdrives()最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtCreateFile\", \"summary\": \"创建或打开文件、目录、设备等对象，并返回其句柄。\" }, \"F2\": { \"option\": \"A\", \"reason\": \"该操作查询文件系统逻辑驱动器。\" }, \"F3\": \"查询逻辑驱动器列表\" }, \"logic\": { \"L1\": \"os.listdrives() 调用 → WinAPI GetLogicalDriveStringsW → NtCreateFile\", \"L2\": { \"option\": \"A\", \"reason\": \"os.listdrives()是唯一执行列出驱动器操作的函数。\" }, \"L3\": { \"option\": \"A\", \"reason\": \"该代码行无分支或循环，会被直接执行。\" } } }"
+}

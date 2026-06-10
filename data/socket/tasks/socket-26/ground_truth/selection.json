@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample26",
+  "reasons": [
+    "候选3的conclusion严格包含命中代码行原文，格式完全对齐预测结果。",
+    "候选3的facts结构完整，F1/F2/F3字段齐全，便于逐项判分。",
+    "候选3的F1核心功能描述清晰且与套接字I/O控制操作匹配，符合日志。",
+    "候选3的F3为“查询+本地套接字地址”，严格符合“动作+对象”格式，无多余解释。",
+    "候选3的L1层级合规，为“代码行为 → API → 系统调用”两跳，包含封装层与运行时层。",
+    "候选1的F2选项为A（设备IO控制属文件句柄操作），理由与套接字地址查询场景不匹配，存在矛盾。",
+    "候选1的F3为“查询+套接字地址”，对象描述不够具体（未明确“本地”），约束不够清晰。",
+    "候选2的L1为“socket.getsockname() → WSAIoctl → NtDeviceIoControlFile”，其中WSAIoctl并非getsockname的标准封装路径，引入了无来源的函数，与日志不一致。",
+    "候选2的F2选项为D（获取套接字的网络地址信息），理由描述过于泛化，未明确通过AFD驱动，可判分性较弱。",
+    "候选2的F3为“获取套接字本地地址”，动作“获取”不如“查询”更贴近IO控制操作，格式兼容性稍差。",
+    "候选1的L1包含“AFD驱动IOCTL → NtDeviceIoControlFile”，实际上AFD驱动IOCTL与NtDeviceIoControlFile是同一层，导致链条超过两跳，结构冗余。",
+    "候选3的L2与L3均采用清晰的单选式表达（选项A），并给出了具体、可核验的理由，约束最清晰。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[addr = s.getsockname()]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtDeviceIoControlFile\",\"summary\":\"向设备驱动程序发送控制码以执行套接字I/O控制操作\"},\"F2\":{\"option\":\"D\",\"reason\":\"getsockname通过AFD驱动查询套接字本地地址\"},\"F3\":\"查询+本地套接字地址\"},\"logic\":{\"L1\":\"s.getsockname()调用 → Winsock getsockname() API → NtDeviceIoControlFile(AFD驱动)\",\"L2\":{\"option\":\"A\",\"reason\":\"getsockname是唯一直接通过AFD驱动触发NtDeviceIoControlFile的操作\"},\"L3\":{\"option\":\"A\",\"reason\":\"调用getsockname即无条件向AFD驱动发送控制码，无需任何分支或缓冲\"}}}"
+}

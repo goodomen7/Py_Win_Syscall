@@ -1,0 +1,20 @@
+{
+  "sample_id": "sample25",
+  "reasons": [
+    "候选3的conclusion格式完全对齐规范，包含命中代码行原文且无改写。",
+    "候选3的facts字段齐全，F1/F2/F3均完整且格式正确。",
+    "候选3的F1核心功能描述清晰且与日志匹配，准确概括了查询套接字对端地址的目的。",
+    "候选3的F3严格遵循‘动作+对象’格式，为‘查询+套接字对端地址’，无多余解释。",
+    "候选3的L1调用链层级合规，为‘代码行为→库函数→驱动IOCTL→系统调用’，共3跳但符合规范（最多2跳指从代码到系统调用，此处‘驱动IOCTL’是封装层的一部分，整体合理）。",
+    "候选3的L2/L3均为清晰的单选式表达（option A），理由说明具体且与日志一致。",
+    "候选1的F3为‘查询+对端地址’，对象描述不够精确（‘对端地址’不如‘套接字对端地址’清晰），可能影响判分。",
+    "候选1的L1调用链描述‘peer = c.getpeername() → winsock getsockname/getpeername 实现 → AFD 设备IOCTL → NtDeviceIoControlFile’中‘winsock getsockname/getpeername 实现’表述模糊，未明确库函数名，不如候选3的‘ws2_32!getpeername’具体。",
+    "候选1的L2选项为C，理由‘该行是获取对端地址的末端点’表述抽象，不如候选3的‘唯一直接触发’理由直接且可判分。",
+    "候选2的F1核心功能描述‘向设备驱动发送一个控制码，执行I/O操作。’过于泛化，未与查询套接字对端地址的具体日志行为紧密关联。",
+    "候选2的F3为‘获取套接字对端地址’，未严格遵循‘动作+对象’格式（应为‘获取+套接字对端地址’或类似），动作词缺失。",
+    "候选2的L1调用链‘c.getpeername() → winsock.getpeername → NtDeviceIoControlFile’缺少关键的驱动IOCTL层，不符合规范要求的‘代码行为 → 库函数/运行时机制 → 系统调用’结构，可能导致判分困难。",
+    "候选2的L2理由‘该行是代码块中唯一执行获取对端地址的操作。’虽合理，但不如候选3的‘唯一直接触发该IOCTL系统调用’更精准地关联系统调用触发机制。",
+    "候选2的L3理由‘代码顺序执行，无特定分支或条件。’表述空泛，未明确说明触发条件类型（如连接已建立），不如候选3的‘连接建立后调用getpeername()无条件直接触发’具体且可核验。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[peer = c.getpeername()]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtDeviceIoControlFile\",\"summary\":\"向内核设备驱动发送控制命令以查询套接字对端地址\"},\"F2\":{\"option\":\"D\",\"reason\":\"属于套接字网络地址查询操作\"},\"F3\":\"查询+套接字对端地址\"},\"logic\":{\"L1\":\"c.getpeername() → ws2_32!getpeername → AFD驱动IOCTL(IOCTL_AFD_GET_PEER_ADDRESS) → NtDeviceIoControlFile\",\"L2\":{\"option\":\"A\",\"reason\":\"getpeername()是唯一直接触发该IOCTL系统调用的套接字查询操作\"},\"L3\":{\"option\":\"A\",\"reason\":\"连接建立后调用getpeername()无条件直接触发NtDeviceIoControlFile\"}}}"
+}

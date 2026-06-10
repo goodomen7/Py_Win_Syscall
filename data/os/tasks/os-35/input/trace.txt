@@ -1,0 +1,15 @@
+=== Process info (PID 956, ETL: func_35.etl) ===
+
+=== Raw syscalls attributed via stackwalk (TID->PID, 3 python TIDs, MARKER WINDOW [549447..549586]) ===
+Marker window: 139 us; Process lifetime stackwalks=3238, in-window=3
+Total syscalls for PID 956: 3
+Unique service routines: 3  (resolved to symbol: 3)
+
+Top syscall service routines (kernel address  Image!Function):
+       1  0xfffff806181d3c90  ntoskrnl.exe!NtQueryDirectoryFileEx
+       1  0xfffff806181886d0  ntoskrnl.exe!NtCreateFile
+       1  0xfffff80618187ea0  ntoskrnl.exe!NtOpenFile
+
+=== Structured event-type counts (events tagged with PID 956) ===
+
+=== Top file paths touched (FileIo Create/Delete/Read/Write/Cleanup) ===

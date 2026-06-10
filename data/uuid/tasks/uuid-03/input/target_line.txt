@@ -1,0 +1,1 @@
+result = uuid.uuid5(namespace, name)

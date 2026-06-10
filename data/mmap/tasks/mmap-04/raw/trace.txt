@@ -1,0 +1,14 @@
+=== Process info (PID 624, ETL: func_04.etl) ===
+
+=== Raw syscalls attributed via stackwalk (TID->PID, 4 python TIDs, MARKER WINDOW [4182735..4183604]) ===
+Marker window: 869 us; Process lifetime stackwalks=3326, in-window=2
+Total syscalls for PID 624: 2
+Unique service routines: 2  (resolved to symbol: 2)
+
+Top syscall service routines (kernel address  Image!Function):
+       1  0xfffff806181886d0  ntoskrnl.exe!NtCreateFile
+       1  0xfffff806181873d0  ntoskrnl.exe!NtQueryInformationFile
+
+=== Structured event-type counts (events tagged with PID 624) ===
+
+=== Top file paths touched (FileIo Create/Delete/Read/Write/Cleanup) ===

@@ -1,0 +1,14 @@
+{
+  "sample_id": "sample29",
+  "reasons": [
+    "候选1的conclusion严格包含命中代码行原文[s.listen(5)]，格式完全对齐。",
+    "候选1的facts结构完整，包含F1、F2、F3，且F1核心功能简短清晰（对设备句柄执行IO控制）。",
+    "候选1的F3为“动作+对象”（监听套接字），形式正确，无多余解释。",
+    "候选1的L1调用链为“代码行为 → 库函数/运行时机制 → 系统调用”，层级合规，且明确包含ws2_32!listen和AFD驱动IOCTL，与Windows网络调用日志一致。",
+    "候选1的L2/L3均为清晰的单选式表达（选项A），并给出简短说明，便于判分。",
+    "候选2的F1 summary过长（向设备驱动发送控制码，执行相应操作。），且未突出与套接字监听的核心关联。",
+    "候选2的L1调用链缺少AFD驱动层（Winsock listen() API → NtDeviceIoControlFile），跳数不足，未体现Windows下网络调用的典型封装路径。",
+    "候选3的F3为“设置监听状态+TCP套接字”，动作与对象组合不当，且“TCP套接字”可能引入无来源的细节，不符合“动作+对象”的简洁规范。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[s.listen(5)]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtDeviceIoControlFile\",\"summary\":\"对设备句柄执行IO控制\"},\"F2\":{\"option\":\"D\",\"reason\":\"套接字设备IO控制调用\"},\"F3\":\"监听套接字\"},\"logic\":{\"L1\":\"s.listen(5) → ws2_32!listen → AFD驱动IOCTL → NtDeviceIoControlFile\",\"L2\":{\"option\":\"A\",\"reason\":\"listen调用直接触发AFD的IOCTL\"},\"L3\":{\"option\":\"A\",\"reason\":\"执行listen即发起内核IO控制\"}}}"
+}

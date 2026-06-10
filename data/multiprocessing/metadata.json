@@ -1,0 +1,10 @@
+{
+  "library": "multiprocessing",
+  "num_tasks": 2,
+  "num_scored_tasks": 2,
+  "num_tasks_with_best_answer": 2,
+  "tasks": [
+    "multiprocessing-01",
+    "multiprocessing-02"
+  ]
+}

@@ -1,0 +1,16 @@
+=== Process info (PID 400, ETL: func_25.etl) ===
+
+=== Raw syscalls attributed via stackwalk (TID->PID, 3 python TIDs, MARKER WINDOW [432083..433304]) ===
+Marker window: 1221 us; Process lifetime stackwalks=3331, in-window=6
+Total syscalls for PID 400: 6
+Unique service routines: 4  (resolved to symbol: 4)
+
+Top syscall service routines (kernel address  Image!Function):
+       3  0xfffff806181d3c90  ntoskrnl.exe!NtQueryDirectoryFileEx
+       1  0xfffff80618187ea0  ntoskrnl.exe!NtOpenFile
+       1  0xfffff80618160090  ntoskrnl.exe!NtClose
+       1  0xfffff806181886d0  ntoskrnl.exe!NtCreateFile
+
+=== Structured event-type counts (events tagged with PID 400) ===
+
+=== Top file paths touched (FileIo Create/Delete/Read/Write/Cleanup) ===

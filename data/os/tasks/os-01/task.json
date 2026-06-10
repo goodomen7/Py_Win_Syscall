@@ -1,0 +1,10 @@
+{
+  "task_id": "os-01",
+  "library": "os",
+  "target_line": "try:\n    for i in range(200):\n        del os.environ[f\"_FILL_{i}\"]\n    os.environ[\"_TRIGGER_EXPAND\"] = \"z\" * (32767 - len(\"_TRIGGER_EXPAND\") - 1)\nexcept Exception as e:\n    print(f\"error: {e}\")",
+  "target_syscall": "NtAllocateVirtualMemory",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

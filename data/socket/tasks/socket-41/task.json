@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-41",
+  "library": "socket",
+  "target_line": "s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)",
+  "target_syscall": "NtDeviceIoControlFile",
+  "num_models_answered": 11,
+  "num_models_scored": 10,
+  "has_best_answer": true,
+  "has_scores": true
+}

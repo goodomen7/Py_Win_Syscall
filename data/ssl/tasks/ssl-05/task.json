@@ -1,0 +1,10 @@
+{
+  "task_id": "ssl-05",
+  "library": "ssl",
+  "target_line": "crls = ssl.enum_crls(\"ROOT\")",
+  "target_syscall": null,
+  "num_models_answered": 11,
+  "num_models_scored": 0,
+  "has_best_answer": false,
+  "has_scores": false
+}

@@ -1,0 +1,1 @@
+c.shutdown(socket.SHUT_RDWR)

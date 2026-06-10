@@ -1,0 +1,1 @@
+        size = m.size()  # ← 触发 NtQueryInformationFile

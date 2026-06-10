@@ -1,0 +1,1 @@
+signal.signal(signal.SIGINT, original_handler)

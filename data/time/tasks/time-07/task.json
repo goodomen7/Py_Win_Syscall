@@ -1,0 +1,10 @@
+{
+  "task_id": "time-07",
+  "library": "time",
+  "target_line": "time.perf_counter()",
+  "target_syscall": "NtQueryPerformanceCounter",
+  "num_models_answered": 11,
+  "num_models_scored": 11,
+  "has_best_answer": true,
+  "has_scores": true
+}

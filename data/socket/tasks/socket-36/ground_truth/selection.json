@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample36",
+  "reasons": [
+    "候选3的conclusion包含命中代码行原文且格式完全对齐规范。",
+    "候选3的facts和logic内部字段F1、F2、F3、L1、L2、L3完整无缺失。",
+    "候选3的F1核心功能描述清晰且与网络IOCTL操作匹配。",
+    "候选3的F3为“发送UDP数据报到目标地址”，符合“动作+对象”格式且无多余解释。",
+    "候选3的L1为“s.sendto()调用 → Winsock WSASendTo() → NtDeviceIoControlFile(AFD IOCTL)”，层级为2跳且包含封装层和运行时层。",
+    "候选3的L2和L3选项均为A，并给出了清晰单选式表达和简短说明。",
+    "候选1的F1总结“对设备句柄执行IO控制命令”过于宽泛，未特指网络套接字操作。",
+    "候选1的L1“s.sendto(...) → ws2_32!sendto → AFD驱动IOCTL → NtDeviceIoControlFile”层级为3跳，超过规范要求的2跳限制。",
+    "候选2的L2理由“在所属代码块中，其他代码行用于创建和关闭套接字，是辅助操作”未直接说明为何该行触发syscall，理由空泛。",
+    "候选2的F3“发送UDP数据”对象描述不完整，未包含目标地址，不如候选3的“发送UDP数据报到目标地址”清晰。",
+    "候选1的F3“发送+UDP数据报”动作与对象间用“+”连接，不符合规范的“动作+对象”自然语言格式。",
+    "候选2的L1“s.sendto() → ws2_32.dll!sendto → NtDeviceIoControlFile”缺少AFD驱动层，调用链不完整，与Windows网络栈实际路径不一致。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[s.sendto(b\\\"ping\\\", (\\\"127.0.0.1\\\", 9))   # port 9 = discard]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtDeviceIoControlFile\",\"summary\":\"通过IOCTL向AFD驱动发送套接字操作控制命令\"},\"F2\":{\"option\":\"D\",\"reason\":\"用于AFD驱动处理套接字网络发送操作\"},\"F3\":\"发送UDP数据报到目标地址\"},\"logic\":{\"L1\":\"s.sendto()调用 → Winsock WSASendTo() → NtDeviceIoControlFile(AFD IOCTL)\",\"L2\":{\"option\":\"A\",\"reason\":\"sendto直接触发AFD IOCTL，是唯一的网络数据发送操作\"},\"L3\":{\"option\":\"A\",\"reason\":\"sendto无条件执行，不依赖任何分支或缓冲机制\"}}}"
+}

@@ -1,0 +1,16 @@
+{
+  "sample_id": "sample17",
+  "reasons": [
+    "候选1的conclusion格式完全对齐规范，使用方括号包裹代码行原文，无改写。",
+    "候选1的facts结构完整，F1/F2/F3字段齐全，且F3为简洁的'动作+对象'形式。",
+    "候选1的logic结构完整，L1/L2/L3字段齐全，L1层级为2跳，符合'代码行为→封装层→系统调用'要求。",
+    "候选1的F1核心功能描述简短清晰，与NtQueryObject功能匹配。",
+    "候选2的conclusion使用反引号包裹代码行，与规范要求的方括号格式不一致。",
+    "候选2的F3为'查询文件句柄的可继承属性'，包含额外解释，不符合'动作+对象'的简洁要求。",
+    "候选3的L1调用链包含'GetHandleInformation(handle, &flags) → NtQueryObject(ObjectHandleAttributeInformation)'，引入了无日志来源的具体函数和参数，可能不匹配日志实际调用。",
+    "候选3的L2理由中'os.get_inheritable是唯一直接通过GetHandleInformation触发NtQueryObject的操作'，断言过于绝对且依赖未在日志中明确出现的函数，可验证性差。",
+    "候选1的L2选项为C，理由'查询句柄属性位于调用链末端'，虽可讨论，但保持了单选式表达，格式合规。",
+    "候选1整体约束清晰，各节点与系统调用日志的查询句柄行为一致，未引入额外假设。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[result = os.get_inheritable(fd)]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtQueryObject\",\"summary\":\"查询句柄对应对象信息\"},\"F2\":{\"option\":\"A\",\"reason\":\"基于文件描述符句柄查询\"},\"F3\":\"查询对象\"},\"logic\":{\"L1\":\"os.get_inheritable(fd) → Windows CRT/Python句柄查询 → NtQueryObject\",\"L2\":{\"option\":\"C\",\"reason\":\"查询句柄属性位于调用链末端\"},\"L3\":{\"option\":\"A\",\"reason\":\"调用即发起句柄信息查询\"}}}"
+}

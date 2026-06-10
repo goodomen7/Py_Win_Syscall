@@ -1,0 +1,22 @@
+=== Process info (PID 492, ETL: func_31.etl) ===
+
+=== Raw syscalls attributed via stackwalk (TID->PID, 5 python TIDs, MARKER WINDOW [692883..694144]) ===
+Marker window: 1261 us; Process lifetime stackwalks=2802, in-window=19
+Total syscalls for PID 492: 19
+Unique service routines: 10  (resolved to symbol: 10)
+
+Top syscall service routines (kernel address  Image!Function):
+       5  0xfffff806181632a0  ntoskrnl.exe!NtDeviceIoControlFile
+       3  0xfffff8061815e910  ntoskrnl.exe!NtWaitForSingleObject
+       3  0xfffff80618160090  ntoskrnl.exe!NtClose
+       2  0xfffff8061807d1c0  ntoskrnl.exe!NtFreeVirtualMemory
+       1  0xfffff806181a3670  ntoskrnl.exe!NtAlertThreadByThreadId
+       1  0xfffff806180ce7f0  ntoskrnl.exe!NtSetEvent
+       1  0xfffff80618061810  ntoskrnl.exe!NtTerminateThread
+       1  0xfffff806180b7ae0  ntoskrnl.exe!NtQueryInformationThread
+       1  0xfffff806181886d0  ntoskrnl.exe!NtCreateFile
+       1  0xfffff806180b6260  ntoskrnl.exe!NtWaitForAlertByThreadId
+
+=== Structured event-type counts (events tagged with PID 492) ===
+
+=== Top file paths touched (FileIo Create/Delete/Read/Write/Cleanup) ===

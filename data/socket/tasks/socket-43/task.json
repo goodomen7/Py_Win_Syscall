@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-43",
+  "library": "socket",
+  "target_line": "info_bytes = s.share(os.getpid())",
+  "target_syscall": "NtDuplicateObject",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

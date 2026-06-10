@@ -1,0 +1,16 @@
+{
+  "sample_id": "sample01",
+  "reasons": [
+    "候选1的conclusion包含命中代码行原文，格式完全对齐规范。",
+    "候选1的facts结构完整，F1、F2、F3字段齐全，便于判分。",
+    "候选1的F1核心功能描述（为进程分配/扩展虚拟内存）与系统调用日志匹配且简短。",
+    "候选1的F3（分配内存）严格符合“动作+对象”格式，无多余解释。",
+    "候选1的L1调用链清晰体现“代码行为→库函数/运行时机制→系统调用”，且为2跳，层级合规。",
+    "候选2的F3（分配+虚拟内存）不符合“动作+对象”格式，带了过多解释，存在缺陷。",
+    "候选2的L1调用链（修改 os.environ → Python 运行时环境管理 → NtAllocateVirtualMemory）缺少封装层/运行时层的具体函数（如putenv/SetEnvironmentVariableW），与日志一致性较弱。",
+    "候选2的L2理由（该代码设置极大环境变量，强制内存重分配。）相对候选1的L2理由（同进程还有多处IO/临时文件会分配内存）更具体，但候选1的L2更贴合日志中可能存在的其他内存分配场景。",
+    "候选2的L3选项（B）与候选1的L3选项（A）相比，候选1的A（执行到赋值即需分配大字符串及更新环境）更直接匹配代码行为，无需额外条件，约束更清晰。",
+    "候选1整体与syscall日志一致，未引入无来源的库/函数，而候选2的L1省略了关键中间层，可能引入不准确信息。"
+  ],
+  "judge_best": "{ \"conclusion\": \"代码行[try:\\n    for i in range(200):\\n        del os.environ[f\\\"_FILL_{i}\\\"]\\n    os.environ[\\\"_TRIGGER_EXPAND\\\"] = \\\"z\\\" * (32767 - len(\\\"_TRIGGER_EXPAND\\\") - 1)\\nexcept Exception as e:\\n    print(f\\\"error: {e}\\\")]最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtAllocateVirtualMemory\", \"summary\": \"为进程分配/扩展虚拟内存\" }, \"F2\": { \"option\": \"B\", \"reason\": \"环境变量扩容触发内存分配\" }, \"F3\": \"分配内存\" }, \"logic\": { \"L1\": \"设置超长环境变量 → Python环境变量字典/Unicode对象扩容 → Windows进程环境块更新(putenv/SetEnvironmentVariableW) → NtAllocateVirtualMemory\", \"L2\": { \"option\": \"D\", \"reason\": \"同进程还有多处IO/临时文件会分配内存\" }, \"L3\": { \"option\": \"A\", \"reason\": \"执行到赋值即需分配大字符串及更新环境\" } } }"
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "os-11",
+  "library": "os",
+  "target_line": "fd = os.open(tmp_path, os.O_CREAT | os.O_WRONLY)",
+  "target_syscall": "NtCreateFile",
+  "num_models_answered": 11,
+  "num_models_scored": 8,
+  "has_best_answer": true,
+  "has_scores": true
+}

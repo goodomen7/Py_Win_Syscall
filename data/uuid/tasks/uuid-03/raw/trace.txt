@@ -1,0 +1,50 @@
+﻿=== Process info (PID 352, script: func_03.py) ===
+
+=== Raw syscalls attributed via stackwalk (TID->PID map, 4 python TIDs) ===
+Total syscalls for PID 352: 2594
+
+Top syscall service routines (kernel address / symbol):
+     391  0xfffff806181873d0  ntoskrnl.exe!"Unknown"
+     300  0xfffff80618160090  ntoskrnl.exe!"Unknown"
+     265  0xfffff80618180100  ntoskrnl.exe!"Unknown"
+     228  0xfffff806181d6590  ntoskrnl.exe!"Unknown"
+     140  0xfffff80618195580  ntoskrnl.exe!"Unknown"
+     128  0xfffff806181886d0  ntoskrnl.exe!"Unknown"
+      99  0xfffff8061807d1c0  ntoskrnl.exe!"Unknown"
+      90  0xfffff806181578b0  ntoskrnl.exe!"Unknown"
+      73  0xfffff806180d4710  ntoskrnl.exe!"Unknown"
+      69  0xfffff8061807df60  ntoskrnl.exe!"Unknown"
+      57  0xfffff806180688c0  ntoskrnl.exe!"Unknown"
+      56  0xfffff8061815d900  ntoskrnl.exe!"Unknown"
+      43  0xfffff8061819f710  ntoskrnl.exe!"Unknown"
+      43  0xfffff80618169690  ntoskrnl.exe!"Unknown"
+      39  0xfffff80617d0adb0  ntoskrnl.exe!"Unknown"
+      36  0xfffff80618181bc0  ntoskrnl.exe!"Unknown"
+      33  0xfffff806181d3c90  ntoskrnl.exe!"Unknown"
+      32  0xfffff80618174e20  ntoskrnl.exe!"Unknown"
+      31  0xfffff806180df0f0  ntoskrnl.exe!"Unknown"
+      29  0xfffff80618187ea0  ntoskrnl.exe!"Unknown"
+      26  0xfffff806181c2930  ntoskrnl.exe!"Unknown"
+      25  0xfffff806180d06c0  ntoskrnl.exe!"Unknown"
+      20  0xfffff80617cf7530  ntoskrnl.exe!"Unknown"
+      20  0xfffff8061807f0f0  ntoskrnl.exe!"Unknown"
+      18  0xfffff80618174aa0  ntoskrnl.exe!"Unknown"
+      18  0xfffff806180d1af0  ntoskrnl.exe!"Unknown"
+      18  0xfffff80617cfe010  ntoskrnl.exe!"Unknown"
+      16  0xfffff8061815e910  ntoskrnl.exe!"Unknown"
+      16  0xfffff80618184d80  ntoskrnl.exe!"Unknown"
+      15  0xfffff806180ce7f0  ntoskrnl.exe!"Unknown"
+      14  0xfffff806180b7ae0  ntoskrnl.exe!"Unknown"
+      13  0xfffff806181632a0  ntoskrnl.exe!"Unknown"
+      12  0xfffff806180688a0  ntoskrnl.exe!"Unknown"
+      12  0xfffff806181d74d0  ntoskrnl.exe!"Unknown"
+      10  0xfffff80618191730  ntoskrnl.exe!"Unknown"
+      10  0xfffff806181e4f80  ntoskrnl.exe!"Unknown"
+       8  0xfffff80618156e60  ntoskrnl.exe!"Unknown"
+       7  0xfffff80617c73a60  ntoskrnl.exe!"Unknown"
+       7  0xfffff806180dc0a0  ntoskrnl.exe!"Unknown"
+       7  0xfffff806180d0650  ntoskrnl.exe!"Unknown"
+
+=== Structured event-type counts (events tagged with PID 352) ===
+
+=== Top file paths touched (FileIo Create/Delete/Read/Write/Cleanup) ===

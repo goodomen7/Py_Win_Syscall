@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample01",
+  "reasons": [
+    "候选1的conclusion正确包含命中代码行原文，格式对齐。",
+    "候选1的facts结构完整，包含F1、F2、F3，符合规范。",
+    "候选1的F1核心功能描述简短且与系统调用名称匹配。",
+    "候选1的F3为“动作+对象”形式（触发SIGINT信号），符合规范。",
+    "候选1的L1调用链为“代码行为 → 库函数/运行时机制 → 系统调用”，且不超过2跳（raise_signal → CPython机制 → NtSetEvent）。",
+    "候选1的L2/L3均为清晰的单选式表达（option A/D），并附有简短说明。",
+    "候选2的F1中syscall名称（NtAlertThreadByThreadId）与日志中实际系统调用（NtSetEvent）不一致，与日志矛盾。",
+    "候选2的F3（提醒线程）不是严格的“动作+对象”形式，且对象不明确，不符合规范。",
+    "候选2的L1调用链缺少明确的封装层或运行时层（Python信号处理机制 → NtAlertThreadByThreadId），层级不完整。",
+    "候选2的L3选项A（无条件）与信号处理机制通常依赖运行时条件的常识不符，理由不可解释。",
+    "候选1的L3选项D（取决于运行时信号唤醒实现）更准确地反映了触发条件的不确定性，约束清晰。",
+    "候选1整体与syscall日志（NtSetEvent）保持一致，未引入无来源的库或函数。"
+  ],
+  "judge_best": "{ \"conclusion\": \"代码行[signal.raise_signal(signal.SIGINT)]最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtSetEvent\", \"summary\": \"设置内核事件对象为有信号\" }, \"F2\": { \"option\": \"C\", \"reason\": \"涉及信号与线程唤醒\" }, \"F3\": \"触发SIGINT信号\" }, \"logic\": { \"L1\": \"signal.raise_signal(signal.SIGINT) → CPython信号投递/唤醒机制 → 内核事件通知 → NtSetEvent\", \"L2\": { \"option\": \"A\", \"reason\": \"raise_signal直接发起信号递送\" }, \"L3\": { \"option\": \"D\", \"reason\": \"是否调用取决于运行时信号唤醒实现\" } } }"
+}

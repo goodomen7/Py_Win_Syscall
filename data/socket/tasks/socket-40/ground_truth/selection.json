@@ -1,0 +1,14 @@
+{
+  "sample_id": "sample40",
+  "reasons": [
+    "候选1的conclusion包含命中代码行原文及注释，格式完全对齐规范。",
+    "候选1的facts字段齐全，F1/F2/F3均完整且格式正确。",
+    "候选1的F3为“设置超时”，严格符合“动作+对象”的简短要求。",
+    "候选1的L1层级合规，清晰展示了“代码行为 → 库函数/运行时机制 → 系统调用”的两跳路径。",
+    "候选2的conclusion中代码行原文缺少注释，虽可接受但不如候选1完整对齐。",
+    "候选2的F3为“发送IO控制码到套接字设备”，动作对象描述稍显冗长，不如候选1简洁规范。",
+    "候选2的L1路径“s.settimeout(5.0) → ioctlsocket() → NtDeviceIoControlFile”缺少Python到C扩展的中间封装层，链条完整性略逊于候选1。",
+    "候选1的L2和L3选项与理由清晰，均为单选式表达且与日志逻辑一致。"
+  ],
+  "judge_best": "{ \"conclusion\": \"代码行[s.settimeout(5.0)             # 触发 ioctlsocket]最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtDeviceIoControlFile\", \"summary\": \"向设备句柄发送IO控制码\" }, \"F2\": { \"option\": \"D\", \"reason\": \"socket超时通过设备控制实现\" }, \"F3\": \"设置超时\" }, \"logic\": { \"L1\": \"s.settimeout(5.0) → Python socket.settimeout(C扩展_socket) → WinSock ioctlsocket/WSAIoctl → NtDeviceIoControlFile\", \"L2\": { \"option\": \"A\", \"reason\": \"该调用直接请求内核设备IO控制\" }, \"L3\": { \"option\": \"A\", \"reason\": \"调用settimeout即立即下发超时设置\" } } }"
+}

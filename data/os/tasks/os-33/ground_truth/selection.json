@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample33",
+  "reasons": [
+    "候选 1 的 conclusion 严格遵循规范，包含命中代码行原文且格式正确，便于判分。",
+    "候选 1 的 F1 核心功能描述简洁且与日志匹配，符合‘一句话核心功能’要求。",
+    "候选 1 的 F3 严格为‘动作+对象’（重命名文件），无多余解释。",
+    "候选 1 的 L1 层级合规，明确包含‘CPython os.replace实现/MoveFileExW’封装层，且不超过2跳。",
+    "候选 2 的 F1 summary 末尾带句号，不符合规范要求的‘尽量简短’且格式不统一。",
+    "候选 2 的 L1 描述‘os.replace C实现’过于笼统，不如候选 1 的‘CPython os.replace实现/MoveFileExW’清晰具体。",
+    "候选 3 的 F3 为‘原子覆盖目标文件’，不符合规范要求的‘动作+对象’标准格式，且带有解释性词汇。",
+    "候选 3 的 L1 中‘MoveFileExW(MOVEFILE_REPLACE_EXISTING)’引入了无来源的常量，与日志一致性存疑。",
+    "候选 1 的 L2 和 L3 均为清晰的单选式表达，且理由直接关联代码行。",
+    "候选 1 的顶层字段齐全且无多余字段，结构完整。",
+    "候选 2 的 conclusion 中代码行原文未包含注释，不如候选 1 完整保留了原始代码片段。",
+    "候选 3 的 F2 reason ‘文件重命名/替换属于文件IO操作’约束过泛，不如候选 1 的‘原子替换涉及文件重命名’具体可判分。"
+  ],
+  "judge_best": "候选 1: { \"conclusion\": \"代码行[os.replace(\"src.txt\", \"dst.txt\")   # 原子覆盖 dst]最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtSetInformationFile\", \"summary\": \"设置文件信息以完成重命名\" }, \"F2\": { \"option\": \"A\", \"reason\": \"原子替换涉及文件重命名\" }, \"F3\": \"重命名文件\" }, \"logic\": { \"L1\": \"os.replace(\"src.txt\", \"dst.txt\") → CPython os.replace实现/MoveFileExW → NtSetInformationFile\", \"L2\": { \"option\": \"A\", \"reason\": \"replace直接执行文件重命名替换\" }, \"L3\": { \"option\": \"A\", \"reason\": \"调用执行即触发系统调用\" } } }"
+}

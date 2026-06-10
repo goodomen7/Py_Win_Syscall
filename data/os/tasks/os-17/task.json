@@ -1,0 +1,10 @@
+{
+  "task_id": "os-17",
+  "library": "os",
+  "target_line": "result = os.get_inheritable(fd)",
+  "target_syscall": "NtQueryObject",
+  "num_models_answered": 11,
+  "num_models_scored": 8,
+  "has_best_answer": true,
+  "has_scores": true
+}

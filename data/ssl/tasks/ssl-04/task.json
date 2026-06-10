@@ -1,0 +1,10 @@
+{
+  "task_id": "ssl-04",
+  "library": "ssl",
+  "target_line": "certs = ssl.enum_certificates(\"ROOT\")",
+  "target_syscall": null,
+  "num_models_answered": 11,
+  "num_models_scored": 0,
+  "has_best_answer": false,
+  "has_scores": false
+}

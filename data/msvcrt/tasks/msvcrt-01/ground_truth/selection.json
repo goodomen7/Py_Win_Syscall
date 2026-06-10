@@ -1,0 +1,16 @@
+{
+  "sample_id": "sample01",
+  "reasons": [
+    "候选1的conclusion字段正确包含命中代码行原文，格式与规范完全对齐。",
+    "候选1的F1系统调用名称与日志一致，且核心功能描述简短准确。",
+    "候选1的F3为“动作+对象”形式，符合规范要求。",
+    "候选1的L1调用链清晰体现“代码行为→库函数/运行时机制→系统调用”，且未超过2跳。",
+    "候选2的F1系统调用名称与日志中的NtDeviceIoControlFile不一致，存在明显错误。",
+    "候选2的L1调用链缺少必要的封装层/运行时层，直接从库函数跳到系统调用，结构不完整。",
+    "候选2的F3“查询控制台输入缓冲区”虽为动作+对象，但“缓冲区”对象不如候选1的“控制台输入”直接。",
+    "候选2的L2理由“该函数是唯一用于查询键盘输入状态的操作”过于绝对且空泛，不易判分。",
+    "候选1的L2选项C（调用链末端）与L1描述逻辑一致，理由具体可核验。",
+    "候选1的L3选项A（立即触发）与轮询行为匹配，且说明了不依赖额外条件。"
+  ],
+  "judge_best": "{ \"conclusion\": \"代码行[result = msvcrt.kbhit()  # Check if a key has been pressed]最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtDeviceIoControlFile\", \"summary\": \"向控制台设备发送IO控制请求\" }, \"F2\": { \"option\": \"A\", \"reason\": \"控制台属于设备文件IO\" }, \"F3\": \"轮询控制台输入\" }, \"logic\": { \"L1\": \"result = msvcrt.kbhit()  # Check if a key has been pressed → msvcrt.kbhit(C运行时控制台输入检测) → Windows Console/ConDrv 设备IOCTL → NtDeviceIoControlFile\", \"L2\": { \"option\": \"C\", \"reason\": \"kbhit处于控制台IO调用链末端\" }, \"L3\": { \"option\": \"A\", \"reason\": \"调用kbhit即发起输入状态查询\" } } }"
+}

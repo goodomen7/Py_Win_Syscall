@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-01",
+  "library": "socket",
+  "target_line": "s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)",
+  "target_syscall": "NtCreateFile",
+  "num_models_answered": 11,
+  "num_models_scored": 8,
+  "has_best_answer": true,
+  "has_scores": true
+}

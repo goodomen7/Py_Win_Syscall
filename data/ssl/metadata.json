@@ -1,0 +1,13 @@
+{
+  "library": "ssl",
+  "num_tasks": 5,
+  "num_scored_tasks": 3,
+  "num_tasks_with_best_answer": 3,
+  "tasks": [
+    "ssl-01",
+    "ssl-02",
+    "ssl-03",
+    "ssl-04",
+    "ssl-05"
+  ]
+}

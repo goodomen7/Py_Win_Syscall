@@ -1,0 +1,1 @@
+os.readlink("test_link.txt")

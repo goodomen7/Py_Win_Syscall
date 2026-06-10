@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample16",
+  "reasons": [
+    "候选3的conclusion格式完全符合规范，包含命中代码行原文且无改写。",
+    "候选3的facts字段齐全，F1、F2、F3均完整且格式正确。",
+    "候选3的F1核心功能描述清晰且与日志匹配，概括准确。",
+    "候选3的F2为清晰的单选式表达，选项与理由对应明确。",
+    "候选3的F3严格遵循“动作+对象”格式，为“写入文件描述符”。",
+    "候选3的L1层级合规，为“代码行为 → 库函数/运行时机制 → 系统调用”的两跳结构。",
+    "候选3的L2和L3均为清晰的单选式表达，选项与理由对应明确。",
+    "候选1的L1超过两跳，包含“CPython posix_write → Windows WriteFile → NtWriteFile”，层级过多。",
+    "候选2的L1缺少封装层或运行时层，直接从“os.write”跳至“NtWriteFile”，不符合规范。",
+    "候选1的F3为“写入文件”，对象不够具体，不如候选3的“写入文件描述符”精确。",
+    "候选2的conclusion使用了Markdown代码块格式`os.write(fd, b\"hello world\")`，不符合规范要求的方括号格式。",
+    "候选1的F1 summary“向文件句柄写入数据”不如候选3的“向已打开的文件句柄写入指定字节数据”更具体且与日志一致。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[os.write(fd, b\\\"hello world\\\")]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtWriteFile\",\"summary\":\"向已打开的文件句柄写入指定字节数据\"},\"F2\":{\"option\":\"A\",\"reason\":\"直接对文件描述符执行写操作\"},\"F3\":\"写入文件描述符\"},\"logic\":{\"L1\":\"os.write(fd, b\\\"hello world\\\") → Python os模块write()封装 → NtWriteFile\",\"L2\":{\"option\":\"A\",\"reason\":\"os.write是唯一直接触发NtWriteFile的写操作调用\"},\"L3\":{\"option\":\"A\",\"reason\":\"无分支条件，fd有效则无条件触发写系统调用\"}}}"
+}

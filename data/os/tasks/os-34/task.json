@@ -1,0 +1,10 @@
+{
+  "task_id": "os-34",
+  "library": "os",
+  "target_line": "os.rmdir(\"empty_dir\")",
+  "target_syscall": "NtSetInformationFile",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "os-26",
+  "library": "os",
+  "target_line": "drives = os.listdrives()",
+  "target_syscall": "NtCreateFile",
+  "num_models_answered": 11,
+  "num_models_scored": 10,
+  "has_best_answer": true,
+  "has_scores": true
+}

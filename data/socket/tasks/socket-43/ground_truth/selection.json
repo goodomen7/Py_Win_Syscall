@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample43",
+  "reasons": [
+    "候选3的conclusion格式正确，包含命中代码行原文，便于判分。",
+    "候选3的facts字段齐全，包含F1、F2、F3，结构完整。",
+    "候选3的F1核心功能描述清晰且简短，与系统调用日志匹配。",
+    "候选3的F2为清晰的单选式表达，选项C与理由说明匹配。",
+    "候选3的F3为标准的“动作+对象”格式，无多余解释。",
+    "候选3的L1层级合规，为2跳，包含封装层和系统调用层。",
+    "候选3的L2和L3均为单选式表达，理由说明具体且与代码行关联。",
+    "候选1的F3“复制句柄”对象不明确，不符合“动作+对象”的完整格式要求。",
+    "候选1的L1调用链包含“Python socket.share()/_socket模块导出句柄 → DuplicateHandle → NtDuplicateObject”，其中“DuplicateHandle”可能为无来源的函数名，与日志一致性存疑。",
+    "候选2的F1摘要“创建一个现有对象的副本句柄。”描述稍显宽泛，不如候选3的“复制内核对象句柄以供目标进程使用”具体且与场景匹配。",
+    "候选2的L2理由“socket.share()是唯一执行跨进程句柄复制语义的函数。”表述存在绝对化，不如候选3的“仅s.share()调用WSADuplicateSocket，是唯一直接触发NtDuplicateObject的操作”更精确且可核验。",
+    "候选2的L3理由“该代码行无分支，会无条件执行。”不如候选3的“share()调用路径无条件分支，直接触发系统调用”更具体地关联了函数调用路径。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[info_bytes = s.share(os.getpid())]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtDuplicateObject\",\"summary\":\"复制内核对象句柄以供目标进程使用\"},\"F2\":{\"option\":\"C\",\"reason\":\"涉及跨进程句柄复制，属进程/线程类操作\"},\"F3\":\"复制套接字句柄到目标进程\"},\"logic\":{\"L1\":\"s.share(os.getpid()) → WSADuplicateSocket → NtDuplicateObject\",\"L2\":{\"option\":\"A\",\"reason\":\"仅s.share()调用WSADuplicateSocket，是唯一直接触发NtDuplicateObject的操作\"},\"L3\":{\"option\":\"A\",\"reason\":\"share()调用路径无条件分支，直接触发系统调用\"}}}"
+}

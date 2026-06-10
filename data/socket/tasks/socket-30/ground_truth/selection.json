@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample30",
+  "reasons": [
+    "候选1的conclusion包含命中代码行原文，格式完全对齐预测结果。",
+    "候选1的facts字段齐全，F1/F2/F3均完整。",
+    "候选1的F3为\"接收数据\"，符合\"动作+对象\"的简短要求。",
+    "候选1的L1层级合规，包含\"代码行为 → 库函数/运行时机制 → 系统调用\"且为2跳（Python层→AFD/WSARecv层→系统调用）。",
+    "候选1的L2/L3均为清晰的单选式表达（option A/D）。",
+    "候选2的L1链条\"`c.recv(1024)` → Winsock API → `NtDeviceIoControlFile`\"中\"Winsock API\"过于笼统，未具体指明封装层/运行时机制，不利于判分。",
+    "候选2的L3选项为A且理由\"代码顺序执行，无分支或循环控制\"与系统调用NtDeviceIoControlFile的阻塞/异步特性不符，与日志可能矛盾。",
+    "候选3的L1链条\"c.recv(1024)调用 → ws2_32!WSARecv → NtDeviceIoControlFile\"缺少Python运行时层（如_socket.recv），与日志中Python调用链可能不一致。",
+    "候选3的L2理由\"recv是唯一直接触发套接字接收I/O控制调用的操作\"表述绝对化，可能引入无来源的断言。",
+    "候选3的L3选项为A且理由\"recv调用在connect成功后无条件执行，不依赖分支或缓冲\"忽略了网络IO可能存在的阻塞/条件依赖，约束过泛。",
+    "候选1的F1核心功能\"对设备句柄执行控制/网络IO\"简短且与日志匹配。",
+    "候选1的L3理由\"阻塞/唤醒与完成由内核调度决定\"准确反映了系统调用的触发条件类型D（异步/事件驱动）。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[data = c.recv(1024)]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtDeviceIoControlFile\",\"summary\":\"对设备句柄执行控制/网络IO\"},\"F2\":{\"option\":\"D\",\"reason\":\"套接字接收触发网络IO\"},\"F3\":\"接收数据\"},\"logic\":{\"L1\":\"data = c.recv(1024) → Python socket.recv()/_socket.recv → AFD/WSARecv → NtDeviceIoControlFile\",\"L2\":{\"option\":\"A\",\"reason\":\"recv是触发内核网络收包的直接操作\"},\"L3\":{\"option\":\"D\",\"reason\":\"阻塞/唤醒与完成由内核调度决定\"}}}"
+}

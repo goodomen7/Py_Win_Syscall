@@ -1,0 +1,14 @@
+{
+  "sample_id": "sample06",
+  "reasons": [
+    "候选1的F1系统调用名称与日志一致，候选2和候选3的F1系统调用名称与日志不符，存在矛盾。",
+    "候选1的F3格式为‘动作+对象’，符合规范；候选3的F3格式为‘创建+套接字句柄’，不符合规范。",
+    "候选1的L1层级为‘代码行为 → 库函数/运行时机制 → 系统调用’，符合最多2跳的规范；候选2的L1层级为‘socket.fromshare(info) → WSASocketW → NtCreateFile’，缺少封装层/运行时层，不符合规范。",
+    "候选1的L2选项为C，理由与F2选项D形成逻辑互补；候选2的L2选项为B，理由与F2选项D的逻辑关联较弱。",
+    "候选1的L3选项为A，理由清晰说明无额外条件；候选3的L3选项为A，理由中提及‘WSASocket’但日志中无此函数，存在无来源函数。",
+    "候选1的结论行包含命中代码行原文，格式对齐；候选2的结论行使用Markdown代码块格式，与预测结果格式不完全对齐。",
+    "候选1的facts和logic内部字段完整；候选2的F1核心功能描述过长过散，不符合简短要求。",
+    "候选1的顶层字段齐全，结构完整；候选3的顶层字段齐全，但F1核心功能描述与日志不匹配，存在矛盾。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[s2 = socket.fromshare(info)]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtDeviceIoControlFile\",\"summary\":\"向设备句柄发送IO控制请求\"},\"F2\":{\"option\":\"D\",\"reason\":\"socket相关句柄操作\"},\"F3\":\"创建socket对象\"},\"logic\":{\"L1\":\"s2 = socket.fromshare(info) → Python _socket.pyd(PySocket_FromShare) → Winsock WSADuplicateSocket/getsockopt → NtDeviceIoControlFile\",\"L2\":{\"option\":\"C\",\"reason\":\"fromshare最终需内核IOCTL取socket状态\"},\"L3\":{\"option\":\"A\",\"reason\":\"执行fromshare即进行底层句柄转换\"}}}"
+}

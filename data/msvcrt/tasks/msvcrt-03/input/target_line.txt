@@ -1,0 +1,1 @@
+msvcrt.putch(test_char)  # Output a character to the console

@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample05",
+  "reasons": [
+    "候选2的conclusion格式完全对齐规范，包含命中代码行原文且无改写，可直接判分。",
+    "候选2的facts结构完整，F1/F2/F3字段齐全，F1核心功能简短清晰且与日志匹配。",
+    "候选2的F3为‘创建套接字文件句柄’，符合‘动作+对象’格式，无多余解释。",
+    "候选2的L1调用链为‘socket.fromfd() → WSASocketW() → NtCreateFile’，严格控制在2跳以内，包含封装层和运行时层。",
+    "候选2的L2/L3均为清晰的单选式表达（option A），并给出简短说明，便于评分模型判定。",
+    "候选1的F2选项为A，但理由‘NtCreateFile属文件句柄创建’与代码行为（网络套接字）不完全匹配，存在矛盾。",
+    "候选1的L1调用链过长（超过2跳），且包含‘Windows句柄复制/获取Socket信息触发设备句柄打开’等模糊描述，层级不合规。",
+    "候选1的L2选项为D，理由‘fromfd偏句柄复制，非典型创建文件’与F2选项A矛盾，逻辑不一致。",
+    "候选3的F3为‘复制+套接字文件描述符’，不符合严格的‘动作+对象’格式，带了过多解释。",
+    "候选3的L1调用链包含‘Python socket模块调用dup/DuplicateHandle’，引入了无来源的库/函数（dup/DuplicateHandle），与日志不一致。",
+    "候选3的L3理由‘调用socket.fromfd()即无条件触发NtCreateFile，无需分支或缓冲机制’过于绝对，可能依赖额外条件，约束空泛。",
+    "候选1和候选3的L2/L3选项与理由存在内部矛盾或模糊，不如候选2清晰稳定，可判分性较差。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[s2 = socket.fromfd(fd, socket.AF_INET, socket.SOCK_STREAM)]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtCreateFile\",\"summary\":\"创建或打开一个文件或 I/O 设备。\"},\"F2\":{\"option\":\"D\",\"reason\":\"该代码通过文件描述符创建网络套接字。\"},\"F3\":\"创建套接字文件句柄\"},\"logic\":{\"L1\":\"socket.fromfd() → WSASocketW() → NtCreateFile\",\"L2\":{\"option\":\"A\",\"reason\":\"该函数通过复制文件描述符创建新套接字，触发调用。\"},\"L3\":{\"option\":\"A\",\"reason\":\"代码直接调用函数，无分支或条件判断。\"}}}"
+}

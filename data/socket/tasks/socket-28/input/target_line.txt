@@ -1,0 +1,1 @@
+s.ioctl(socket.SIO_KEEPALIVE_VALS, (1, 10000, 3000))

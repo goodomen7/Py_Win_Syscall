@@ -1,0 +1,14 @@
+{
+  "sample_id": "sample03",
+  "reasons": [
+    "候选3的F1核心功能描述更精确，明确指出了查询信息包括父进程ID，与日志意图高度一致。",
+    "候选3的F3格式为‘动作+对象’（查询+父进程ID），完全符合规范，而候选1的‘查询父进程ID’缺少加号，候选2的‘查询进程信息’对象不够具体。",
+    "候选3的L1层级清晰，为‘代码行→运行时封装→系统调用’的两跳结构，符合最多2跳的要求。",
+    "候选3的L2和L3选项与理由匹配，且理由明确指出了唯一性和无条件执行，便于判分。",
+    "候选1的F1总结‘查询进程信息以获取父进程ID’稍显冗长，不如候选3简洁精准。",
+    "候选2的L1链条‘os.getppid() → CPython运行时 → NtQueryInformationProcess’缺少了代码行层，结构不完整。",
+    "候选1的L1链条‘ppid = os.getppid() → CPython os.getppid实现 → Windows查询进程信息API → NtQueryInformationProcess’包含了‘Windows查询进程信息API’这一层，导致超过2跳，不符合规范。",
+    "候选2的F3‘查询进程信息’对象泛化，未聚焦于‘父进程ID’，与结论行的具体性不符，可能影响判分准确性。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[ppid = os.getppid()]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtQueryInformationProcess\",\"summary\":\"查询指定进程的基本信息，包括父进程ID\"},\"F2\":{\"option\":\"C\",\"reason\":\"获取父进程ID属于进程信息查询操作\"},\"F3\":\"查询+父进程ID\"},\"logic\":{\"L1\":\"ppid = os.getppid() → Python运行时os.getppid()封装 → NtQueryInformationProcess\",\"L2\":{\"option\":\"A\",\"reason\":\"os.getppid()是代码中唯一会触发NtQueryInformationProcess的调用点\"},\"L3\":{\"option\":\"A\",\"reason\":\"该行在顶层无条件执行，不依赖任何分支或缓冲机制\"}}}"
+}

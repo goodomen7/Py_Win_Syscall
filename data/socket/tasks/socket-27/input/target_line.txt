@@ -1,0 +1,1 @@
+val_nodelay = s.getsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY)

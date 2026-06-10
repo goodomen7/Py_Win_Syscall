@@ -1,0 +1,1 @@
+{"conclusion": "代码行[os.close(r)]最可能触发或产生该系统调用", "facts": {"F1": {"syscall": "NtClose", "summary": "关闭内核对象句柄/文件描述符"}, "F2": {"option": "A", "reason": "关闭pipe端点属IO句柄"}, "F3": "关闭句柄"}, "logic": {"L1": "os.close(r) → CPython posixmodule.close() → CloseHandle/_close → NtClose", "L2": {"option": "A", "reason": "该行直接执行关闭描述符操作"}, "L3": {"option": "A", "reason": "调用os.close即立即关闭无缓冲"}}}

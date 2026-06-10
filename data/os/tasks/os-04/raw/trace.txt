@@ -1,0 +1,91 @@
+=== Process info (PID 648, ETL: func_04.etl) ===
+
+=== Raw syscalls attributed via stackwalk (TID->PID, 4 python TIDs, FULL PROCESS LIFETIME) ===
+Total syscalls for PID 648: 3091
+Unique service routines: 80  (resolved to symbol: 80)
+
+Top syscall service routines (kernel address  Image!Function):
+     688  0xfffff806181873d0  ntoskrnl.exe!NtQueryInformationFile
+     456  0xfffff80618180100  ntoskrnl.exe!NtQueryVolumeInformationFile
+     343  0xfffff80618160090  ntoskrnl.exe!NtClose
+     260  0xfffff806181d6590  ntoskrnl.exe!NtAllocateVirtualMemory
+     201  0xfffff806181886d0  ntoskrnl.exe!NtCreateFile
+     131  0xfffff8061807d1c0  ntoskrnl.exe!NtFreeVirtualMemory
+      94  0xfffff80618195580  ntoskrnl.exe!NtProtectVirtualMemory
+      87  0xfffff806181578b0  ntoskrnl.exe!NtQueryInformationToken
+      73  0xfffff8061815d900  ntoskrnl.exe!NtOpenProcessTokenEx
+      73  0xfffff806180688c0  ntoskrnl.exe!NtOpenThreadTokenEx
+      69  0xfffff80617d0adb0  ntoskrnl.exe!NtSetInformationFile
+      62  0xfffff8061807df60  ntoskrnl.exe!NtQueryVirtualMemory
+      61  0xfffff80618174e20  ntoskrnl.exe!NtReadFile
+      40  0xfffff8061815e910  ntoskrnl.exe!NtWaitForSingleObject
+      38  0xfffff806180d4710  ntoskrnl.exe!NtOpenKey
+      36  0xfffff806181d3c90  ntoskrnl.exe!NtQueryDirectoryFileEx
+      33  0xfffff8061819f710  ntoskrnl.exe!NtTraceControl
+      27  0xfffff80618169690  ntoskrnl.exe!NtQueryValueKey
+      23  0xfffff80618181bc0  ntoskrnl.exe!NtMapViewOfSection
+      20  0xfffff80618187ea0  ntoskrnl.exe!NtOpenFile
+      20  0xfffff806180df0f0  ntoskrnl.exe!NtQueryPerformanceCounter
+      20  0xfffff806181c2930  ntoskrnl.exe!NtOpenSection
+      14  0xfffff806180d06c0  ntoskrnl.exe!NtApphelpCacheControl
+      14  0xfffff806181632a0  ntoskrnl.exe!NtDeviceIoControlFile
+      13  0xfffff80618174aa0  ntoskrnl.exe!NtQuerySystemInformation
+      12  0xfffff806180d1af0  ntoskrnl.exe!NtQueryAttributesFile
+      11  0xfffff806180ce7f0  ntoskrnl.exe!NtSetEvent
+       9  0xfffff80618184d80  ntoskrnl.exe!NtCreateSection
+       9  0xfffff8061807f0f0  ntoskrnl.exe!NtQueryInformationProcess
+       8  0xfffff806181d74d0  ntoskrnl.exe!NtSetInformationProcess
+       7  0xfffff80617cfd180  ntoskrnl.exe!NtSetInformationWorkerFactory
+       7  0xfffff806180d1520  ntoskrnl.exe!NtAllocateLocallyUniqueId
+       7  0xfffff80617cf7530  ntoskrnl.exe!NtWaitForWorkViaWorkerFactory
+       7  0xfffff806181e4f80  ntoskrnl.exe!NtCreateEvent
+       6  0xfffff80618156e60  ntoskrnl.exe!NtQuerySecurityAttributesToken
+       6  0xfffff806180dc0a0  ntoskrnl.exe!NtCreateWaitCompletionPacket
+       5  0xfffff806180e24d0  ntoskrnl.exe!NtQuerySystemInformationEx
+       5  0xfffff806180b7ae0  ntoskrnl.exe!NtQueryInformationThread
+       5  0xfffff8061814ad40  ntoskrnl.exe!NtUnmapViewOfSection
+       5  0xfffff8061817d940  ntoskrnl.exe!NtCreateTimer2
+       5  0xfffff80617c73a60  ntoskrnl.exe!NtAssociateWaitCompletionPacket
+       5  0xfffff80618179510  ntoskrnl.exe!NtWriteFile
+       5  0xfffff80617cfe010  ntoskrnl.exe!NtReleaseWorkerFactoryWorker
+       4  0xfffff806180bc110  ntoskrnl.exe!NtGetNlsSectionPtr
+       4  0xfffff80617e423a0  ntoskrnl.exe!NtContinue
+       4  0xfffff806180d0650  ntoskrnl.exe!NtOpenKeyEx
+       4  0xfffff806180688a0  ntoskrnl.exe!NtOpenThreadToken
+       4  0xfffff80618191730  ntoskrnl.exe!NtSetInformationThread
+       4  0xfffff80618077e10  ntoskrnl.exe!NtCreateSemaphore
+       3  0xfffff806180e1c30  ntoskrnl.exe!NtResumeThread
+       3  0xfffff80618061930  ntoskrnl.exe!NtCreateThreadEx
+       3  0xfffff806181d6220  ntoskrnl.exe!NtAllocateVirtualMemoryEx
+       3  0xfffff80617cae610  ntoskrnl.exe!NtWorkerFactoryWorkerReady
+       3  0xfffff8061816a110  ntoskrnl.exe!NtQueryKey
+       2  0xfffff806180f4630  ntoskrnl.exe!NtTerminateProcess
+       2  0xfffff806180e2c90  ntoskrnl.exe!NtCreateIoCompletion
+       2  0xfffff80618154650  ntoskrnl.exe!NtAlpcSendWaitReceivePort
+       2  0xfffff80618140ea0  ntoskrnl.exe!NtQueryWnfStateData
+       2  0xfffff806181e3670  ntoskrnl.exe!NtQueryObject
+       2  0xfffff806180ed1a0  ntoskrnl.exe!NtGetMUIRegistryInfo
+       1  0xfffff806180e2ec0  ntoskrnl.exe!NtConnectPort
+       1  0xfffff806180b6260  ntoskrnl.exe!NtWaitForAlertByThreadId
+       1  0xfffff8061815c860  ntoskrnl.exe!NtEnumerateKey
+       1  0xfffff806180ed560  ntoskrnl.exe!NtQueryDefaultLocale
+       1  0xfffff8061817d590  ntoskrnl.exe!NtCreateWorkerFactory
+       1  0xfffff806180f4f20  ntoskrnl.exe!NtTestAlert
+       1  0xfffff806180e70d0  ntoskrnl.exe!NtOpenProcessToken
+       1  0xfffff806181a3670  ntoskrnl.exe!NtAlertThreadByThreadId
+       1  0xfffff806180d3c00  ntoskrnl.exe!NtOpenDirectoryObject
+       1  0xfffff806180f24c0  ntoskrnl.exe!NtSetWnfProcessNotificationEvent
+       1  0xfffff806180c3750  ntoskrnl.exe!NtCreateMutant
+       1  0xfffff806181c27b0  ntoskrnl.exe!NtOpenSemaphore
+       1  0xfffff806180ceaa0  ntoskrnl.exe!NtOpenSymbolicLinkObject
+       1  0xfffff8061817a260  ntoskrnl.exe!NtLockFile
+       1  0xfffff806180bae60  ntoskrnl.exe!NtInitializeNlsFiles
+       1  0xfffff806180cbfb0  ntoskrnl.exe!NtSetInformationObject
+       1  0xfffff806181570b0  ntoskrnl.exe!NtQuerySymbolicLinkObject
+       1  0xfffff80617d18950  ntoskrnl.exe!NtSetTimer2
+       1  0xfffff80618140a40  ntoskrnl.exe!NtSubscribeWnfStateChange
+       1  0xfffff806180f67c0  ntoskrnl.exe!NtManageHotPatch
+
+=== Structured event-type counts (events tagged with PID 648) ===
+
+=== Top file paths touched (FileIo Create/Delete/Read/Write/Cleanup) ===

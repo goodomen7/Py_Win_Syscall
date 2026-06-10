@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-19",
+  "library": "socket",
+  "target_line": "conn, addr = srv.accept()",
+  "target_syscall": "NtWaitForSingleObject",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-08",
+  "library": "socket",
+  "target_line": "fqdn = socket.getfqdn()",
+  "target_syscall": "NtQueryInformationFile",
+  "num_models_answered": 11,
+  "num_models_scored": 8,
+  "has_best_answer": true,
+  "has_scores": true
+}

@@ -1,0 +1,1 @@
+key = msvcrt.getch()  # Wait for and get a single character

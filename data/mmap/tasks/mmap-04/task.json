@@ -1,0 +1,10 @@
+{
+  "task_id": "mmap-04",
+  "library": "mmap",
+  "target_line": "size = m.size()  # ← 触发 NtQueryInformationFile",
+  "target_syscall": "NtQueryInformationFile",
+  "num_models_answered": 11,
+  "num_models_scored": 11,
+  "has_best_answer": true,
+  "has_scores": true
+}

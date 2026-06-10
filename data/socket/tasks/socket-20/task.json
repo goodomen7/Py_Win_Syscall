@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-20",
+  "library": "socket",
+  "target_line": "s.bind((\"127.0.0.1\", 0))",
+  "target_syscall": null,
+  "num_models_answered": 11,
+  "num_models_scored": 0,
+  "has_best_answer": false,
+  "has_scores": false
+}

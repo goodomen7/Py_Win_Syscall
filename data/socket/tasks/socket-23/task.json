@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-23",
+  "library": "socket",
+  "target_line": "s2 = s.dup()",
+  "target_syscall": "NtDuplicateObject",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

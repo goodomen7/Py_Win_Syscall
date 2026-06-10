@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-33",
+  "library": "socket",
+  "target_line": "nbytes = c.recv_into(buf)",
+  "target_syscall": "NtDeviceIoControlFile",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

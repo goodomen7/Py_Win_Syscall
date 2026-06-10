@@ -1,0 +1,11 @@
+{
+  "library": "signal",
+  "num_tasks": 3,
+  "num_scored_tasks": 3,
+  "num_tasks_with_best_answer": 3,
+  "tasks": [
+    "signal-01",
+    "signal-02",
+    "signal-03"
+  ]
+}

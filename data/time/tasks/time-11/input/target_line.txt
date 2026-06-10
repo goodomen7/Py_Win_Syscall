@@ -1,0 +1,1 @@
+time.thread_time()

@@ -1,0 +1,1 @@
+result = socket.if_nameindex()

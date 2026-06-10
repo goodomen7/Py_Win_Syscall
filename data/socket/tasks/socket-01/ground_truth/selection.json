@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample01",
+  "reasons": [
+    "候选1的conclusion格式严格对齐规范，包含代码行原文且无多余符号。",
+    "候选1的F1核心功能描述简洁准确，与NtCreateFile功能匹配。",
+    "候选1的F3为“动作+对象”格式（创建socket句柄），符合规范且无多余解释。",
+    "候选1的L1调用链清晰体现“代码行为→库函数/运行时机制→系统调用”且为2跳（Python socket→Winsock WSASocket→AFD驱动→NtCreateFile），层级合规。",
+    "候选2的F1摘要过长（“创建新文件或打开已有文件、设备或驱动程序。”），不够简短，可能影响判分。",
+    "候选2的F3“创建套接字”对象描述不完整，未严格遵循“动作+对象”格式（缺少“句柄”或“对象”等关键对象词）。",
+    "候选2的L2选项为A（直接触发），但实际socket创建在Windows上通过AFD驱动间接触发，选项D（间接封装）更准确，候选1的L2选项D更合理。",
+    "候选3的F2选项为A（文件/IO类），但规范要求按A/B/C/D/E选最主要触发类别，对于NtCreateFile在socket场景，选项D（间接封装）更贴切，候选3的F2选择不精准。",
+    "候选3的L1调用链中“ws2_32.dll!WSASocketW → AFD驱动 → NtCreateFile”缺少代码行为层，未体现“Python socket模块调用”，结构不完整。",
+    "候选1的L3选项A（无条件执行）与日志一致，且说明清晰，便于判分。",
+    "候选2的L1链过短（`socket.socket()` → Winsock API `WSASocketW()` → `NtCreateFile`），缺少AFD驱动层，与Windows实际调用链不符。",
+    "候选3的F3“创建TCP套接字对象”中“TCP”为额外解释，超出“动作+对象”简洁要求，可能引入判分歧义。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtCreateFile\",\"summary\":\"创建/打开文件或设备句柄\"},\"F2\":{\"option\":\"D\",\"reason\":\"socket创建需打开AFD设备\"},\"F3\":\"创建socket句柄\"},\"logic\":{\"L1\":\"s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) → Python socket模块调用Winsock WSASocket → AFD驱动设备打开 → NtCreateFile\",\"L2\":{\"option\":\"D\",\"reason\":\"多处socket创建均可能触发同类调用\"},\"L3\":{\"option\":\"A\",\"reason\":\"执行该行即尝试创建socket并打开设备\"}}}"
+}

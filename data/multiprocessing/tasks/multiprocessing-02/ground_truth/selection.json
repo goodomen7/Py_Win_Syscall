@@ -1,0 +1,14 @@
+{
+  "sample_id": "sample02",
+  "reasons": [
+    "候选1的F1核心功能描述简短且与日志匹配，明确提及CPU信息",
+    "候选1的F3严格遵循“动作+对象”格式，为“查询CPU数量”，无多余解释",
+    "候选1的L1层级合规，包含封装层（multiprocessing.cpu_count()）和运行时层（os.cpu_count()/PyOS_GetCPUCount → GetSystemInfo/系统信息查询API），且未超过2跳",
+    "候选1的L2/L3均为清晰的单选式表达，选项与理由对应",
+    "候选2的F1核心功能描述“查询或设置指定的系统信息。”过于宽泛，未突出CPU信息查询",
+    "候选2的F3为“查询系统信息”，对象不具体，不符合“动作+对象”的严格格式",
+    "候选2的L1链条“multiprocessing.cpu_count() → os.cpu_count() → NtQuerySystemInformationEx”缺少运行时层（如PyOS_GetCPUCount或系统API），层级不完整",
+    "候选3的L1链条“multiprocessing.cpu_count() → os.cpu_count()/GetLogicalProcessorInformation → NtQuerySystemInformationEx”引入了无来源的函数“GetLogicalProcessorInformation”，与日志不一致"
+  ],
+  "judge_best": "候选 1: { \"conclusion\": \"代码行[cpu_count = multiprocessing.cpu_count()  # 触发系统调用]最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtQuerySystemInformationEx\", \"summary\": \"查询系统信息（含CPU信息）\" }, \"F2\": { \"option\": \"E\", \"reason\": \"获取系统硬件信息\" }, \"F3\": \"查询CPU数量\" }, \"logic\": { \"L1\": \"multiprocessing.cpu_count() → os.cpu_count()/PyOS_GetCPUCount → GetSystemInfo/系统信息查询API → NtQuerySystemInformationEx\", \"L2\": { \"option\": \"A\", \"reason\": \"该行直接请求系统CPU数量信息\" }, \"L3\": { \"option\": \"A\", \"reason\": \"调用cpu_count时即触发系统查询\" } } }"
+}

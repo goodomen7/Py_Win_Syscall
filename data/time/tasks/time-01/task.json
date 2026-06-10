@@ -1,0 +1,10 @@
+{
+  "task_id": "time-01",
+  "library": "time",
+  "target_line": "time.asctime()",
+  "target_syscall": "NtQuerySystemInformation",
+  "num_models_answered": 11,
+  "num_models_scored": 10,
+  "has_best_answer": true,
+  "has_scores": true
+}

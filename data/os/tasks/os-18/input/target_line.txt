@@ -1,0 +1,1 @@
+os.set_inheritable(fd, True)

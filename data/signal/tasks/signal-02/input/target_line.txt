@@ -1,0 +1,1 @@
+    old_fd = signal.set_wakeup_fd(sock1.fileno())

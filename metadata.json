@@ -1,0 +1,41 @@
+{
+  "name": "py-windows-syscall-bench",
+  "version": "1.0.0",
+  "description": "Benchmark for evaluating LLM chain-of-thought reasoning that links a Python source line to the Windows native syscall it triggers, judged against curated ground truth.",
+  "task_format": {
+    "input": "Curated prompt unit: target code line, surrounding context, and syscall trace.",
+    "ground_truth": "Best curated answer plus all candidate answers and the selection rationale.",
+    "prediction": "One JSON line per evaluated model with its raw answer.",
+    "score": "Per-node (Conclusion/F1/F2/F3/L1/L2/L3) Correct/Incorrect judgement per model."
+  },
+  "libraries": [
+    "mmap",
+    "msvcrt",
+    "multiprocessing",
+    "os",
+    "signal",
+    "socket",
+    "ssl",
+    "time",
+    "uuid"
+  ],
+  "models_evaluated": [
+    "ERNIE-3.5-8K",
+    "claude-opus-4-7",
+    "claude-sonnet-4-6",
+    "deepseek-v3.2",
+    "doubao-seed-2-0-lite-260215",
+    "gemini-2.5-pro",
+    "gemini-3-pro-preview-thinking",
+    "glm-4",
+    "gpt-5.2",
+    "gpt-5.5",
+    "grok-4-20-reasoning"
+  ],
+  "totals": {
+    "libraries": 9,
+    "tasks": 113,
+    "scored_tasks": 105,
+    "tasks_with_best_answer": 105
+  }
+}

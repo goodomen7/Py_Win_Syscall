@@ -1,0 +1,1 @@
+os.lchmod(tmp.name, 0o644)

@@ -1,0 +1,12 @@
+{
+  "library": "mmap",
+  "num_tasks": 4,
+  "num_scored_tasks": 4,
+  "num_tasks_with_best_answer": 4,
+  "tasks": [
+    "mmap-01",
+    "mmap-02",
+    "mmap-03",
+    "mmap-04"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "os-24",
+  "library": "os",
+  "target_line": "os.link(tmp.name, link_path)",
+  "target_syscall": "NtSetInformationFile",
+  "num_models_answered": 11,
+  "num_models_scored": 8,
+  "has_best_answer": true,
+  "has_scores": true
+}

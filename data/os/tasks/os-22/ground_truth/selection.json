@@ -1,0 +1,18 @@
+{
+  "sample_id": "sample22",
+  "reasons": [
+    "候选2的结论行完全符合规范，包含命中代码行原文且无改写。",
+    "候选2的facts和logic字段齐全且内部结构完整，便于评分模型逐项判定。",
+    "候选2的F1核心功能描述清晰且与系统调用功能匹配，长度适中。",
+    "候选2的F3严格遵循“动作+对象”格式，为“设置文件权限属性”。",
+    "候选2的L1调用链层级合规，包含封装层（SetFileInformationByHandle/SetFileAttributesW）和系统调用层，且为2跳。",
+    "候选2的L2和L3均为清晰的单选式表达，并提供了具体理由。",
+    "候选1的F3“更改文件权限”虽为“动作+对象”，但“更改”不如“设置”精确。",
+    "候选1的L2理由“权限变更最终落到SetInformationFile类调用”略显空泛，不如候选2具体。",
+    "候选1的L1调用链中“CPython os.chmod/Windows文件属性设置”描述不够具体，不如候选2明确。",
+    "候选3的L1调用链“os.chmod(...) → NtSetInformationFile”缺少中间封装层/运行时层，不符合规范。",
+    "候选3的L2理由“其他代码也修改文件信息，但此为特定匹配实例。”与日志中NtSetInformationFile仅出现一次的事实可能矛盾，且理由模糊。",
+    "候选3的F1总结“设置或修改指定文件的元数据信息。”稍长，且“指定”一词可能引入不必要细节。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[os.chmod(tmp.name, 0o644)]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtSetInformationFile\",\"summary\":\"设置文件元数据或属性信息\"},\"F2\":{\"option\":\"A\",\"reason\":\"属于文件属性修改的IO操作\"},\"F3\":\"设置文件权限属性\"},\"logic\":{\"L1\":\"os.chmod(tmp.name, 0o644) → SetFileInformationByHandle/SetFileAttributesW → NtSetInformationFile\",\"L2\":{\"option\":\"A\",\"reason\":\"代码中唯一触发文件属性写入的操作，日志中NtSetInformationFile仅出现1次与之对应\"},\"L3\":{\"option\":\"A\",\"reason\":\"chmod调用位于顺序执行路径，无条件触发\"}}}"
+}

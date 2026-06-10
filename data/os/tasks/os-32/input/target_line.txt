@@ -1,0 +1,6 @@
+os.rename(src_a, dst_a)
+try:
+    os.rename(src_b, dst_b)
+except FileExistsError:
+    pass
+os.replace(src_c, dst_c)

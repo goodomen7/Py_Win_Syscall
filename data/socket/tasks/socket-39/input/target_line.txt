@@ -1,0 +1,2 @@
+s.setblocking(False)          # 设为非阻塞 → 触发 ioctlsocket
+s.setblocking(True)           # 设回阻塞 → 再次触发 ioctlsocket

@@ -1,0 +1,10 @@
+{
+  "task_id": "msvcrt-01",
+  "library": "msvcrt",
+  "target_line": "result = msvcrt.kbhit()  # Check if a key has been pressed",
+  "target_syscall": "NtDeviceIoControlFile",
+  "num_models_answered": 11,
+  "num_models_scored": 10,
+  "has_best_answer": true,
+  "has_scores": true
+}

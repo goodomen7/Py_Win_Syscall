@@ -1,0 +1,10 @@
+{
+  "task_id": "os-19",
+  "library": "os",
+  "target_line": "result = os.get_handle_inheritable(handle)",
+  "target_syscall": "NtQueryObject",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}

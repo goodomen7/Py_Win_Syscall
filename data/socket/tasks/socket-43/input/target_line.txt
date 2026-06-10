@@ -1,0 +1,1 @@
+info_bytes = s.share(os.getpid())

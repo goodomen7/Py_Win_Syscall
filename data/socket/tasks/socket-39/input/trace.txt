@@ -1,0 +1,98 @@
+=== Process info (PID 6700, ETL: func_39.etl) ===
+                P-Start,     240402,       python.exe (6700),       2684,          2, 0x0000ae895675a080, 0x0000000078c81000, 0x00000000, S-1-5-21-136546351-3326621074-3406081562-500, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe" "C:\Users\func_scripts\func_39.py" , <none>, <none>
+                I-Start,     248006,       python.exe (6700), 0x00007ff6dbe90000, 0x00007ff6dbeaa000, 0x0001c1ae,    0x69d55b42, 0x00007ff6dbe90000, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe", , "\Device\HarddiskVolume2\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe"
+                I-Start,     248136,       python.exe (6700), 0x00007ffec96c0000, 0x00007ffec98c3000, 0x0020e450,    0x6e40a9c3, 0x00007ffec96c0000, "C:\Windows\System32\ntdll.dll", , "\Device\HarddiskVolume2\Windows\System32\ntdll.dll"
+                I-Start,     249698,       python.exe (6700), 0x00007ffec8260000, 0x00007ffec831c000, 0x000cdb41,    0x81965f2e, 0x00007ffec8260000, "C:\Windows\System32\kernel32.dll", , "\Device\HarddiskVolume2\Windows\System32\kernel32.dll"
+                I-Start,     249929,       python.exe (6700), 0x00007ffec6c20000, 0x00007ffec6f91000, 0x0037eea3,    0xe1a1a545, 0x00007ffec6c20000, "C:\Windows\System32\KernelBase.dll", , "\Device\HarddiskVolume2\Windows\System32\KernelBase.dll"
+                I-Start,     257821,       python.exe (6700), 0x00007ffec7340000, 0x00007ffec7450000, 0x001225cd,    0xeb78ec60, 0x00007ffec7340000, "C:\Windows\System32\ucrtbase.dll", , "\Device\HarddiskVolume2\Windows\System32\ucrtbase.dll"
+                I-Start,     258270,       python.exe (6700), 0x00007ffea0510000, 0x00007ffea0b66000, 0x005e493a,    0x69d55ac9, 0x00007ffea0510000, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python313.dll", , "\Device\HarddiskVolume2\Users\Administrator\AppData\Local\Programs\Python\Python313\python313.dll"
+                I-Start,     258729,       python.exe (6700), 0x00007ffeb6300000, 0x00007ffeb631e000, 0x0001e26d,    0x782c6426, 0x00007ffeb6300000, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\vcruntime140.dll", , "\Device\HarddiskVolume2\Users\Administrator\AppData\Local\Programs\Python\Python313\vcruntime140.dll"
+                I-Start,     259434,       python.exe (6700), 0x00007ffec8e40000, 0x00007ffec8eb1000, 0x000823a7,    0x2743399e, 0x00007ffec8e40000, "C:\Windows\System32\ws2_32.dll", , "\Device\HarddiskVolume2\Windows\System32\ws2_32.dll"
+                I-Start,     259656,       python.exe (6700), 0x00007ffec8510000, 0x00007ffec8630000, 0x0012fd37,    0x923914c8, 0x00007ffec8510000, "C:\Windows\System32\rpcrt4.dll", , "\Device\HarddiskVolume2\Windows\System32\rpcrt4.dll"
+                I-Start,     259902,       python.exe (6700), 0x00007ffec75c0000, 0x00007ffec75e7000, 0x0002c01e,    0x8eb6ca22, 0x00007ffec75c0000, "C:\Windows\System32\bcrypt.dll", , "\Device\HarddiskVolume2\Windows\System32\bcrypt.dll"
+                I-Start,     260084,       python.exe (6700), 0x00007ffec8ec0000, 0x00007ffec8f71000, 0x000c2715,    0xd196fc33, 0x00007ffec8ec0000, "C:\Windows\System32\advapi32.dll", , "\Device\HarddiskVolume2\Windows\System32\advapi32.dll"
+                I-Start,     260242,       python.exe (6700), 0x00007ffec81b0000, 0x00007ffec8253000, 0x000a874f,    0xee390ecb, 0x00007ffec81b0000, "C:\Windows\System32\msvcrt.dll", , "\Device\HarddiskVolume2\Windows\System32\msvcrt.dll"
+                I-Start,     260419,       python.exe (6700), 0x00007ffec8630000, 0x00007ffec86d2000, 0x000ae5fa,    0x6e224083, 0x00007ffec8630000, "C:\Windows\System32\sechost.dll", , "\Device\HarddiskVolume2\Windows\System32\sechost.dll"
+                I-Start,     260865,       python.exe (6700), 0x00007ffec1350000, 0x00007ffec135a000, 0x00012976,    0xdb212c5b, 0x00007ffec1350000, "C:\Windows\System32\version.dll", , "\Device\HarddiskVolume2\Windows\System32\version.dll"
+                I-Start,     264061,       python.exe (6700), 0x00007ffec72c0000, 0x00007ffec733f000, 0x0008ecdb,    0x31c2c51e, 0x00007ffec72c0000, "C:\Windows\System32\bcryptprimitives.dll", , "\Device\HarddiskVolume2\Windows\System32\bcryptprimitives.dll"
+                I-Start,     296064,       python.exe (6700), 0x000001b2d9ff0000, 0x000001b2da000000, 0x0001ba3a,    0x69d55ace, 0x0000000180000000, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python3.dll", relocated, "\Device\HarddiskVolume2\Users\Administrator\AppData\Local\Programs\Python\Python313\python3.dll"
+                I-Start,     296335,       python.exe (6700), 0x000001b2d9ff0000, 0x000001b2da000000, 0x0001ba3a,    0x69d55ace, 0x0000000180000000, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python3.dll", relocated, "\Device\HarddiskVolume2\Users\Administrator\AppData\Local\Programs\Python\Python313\python3.dll"
+                I-Start,     297282,       python.exe (6700), 0x00007ffeb7be0000, 0x00007ffeb7bf6000, 0x0001d7e4,    0x69d55b16, 0x00007ffeb7be0000, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\DLLs\_socket.pyd", , "\Device\HarddiskVolume2\Users\Administrator\AppData\Local\Programs\Python\Python313\DLLs\_socket.pyd"
+                I-Start,     298519,       python.exe (6700), 0x00007ffec5e00000, 0x00007ffec5e2d000, 0x00036232,    0x5b219e94, 0x00007ffec5e00000, "C:\Windows\System32\IPHLPAPI.DLL", , "\Device\HarddiskVolume2\Windows\System32\IPHLPAPI.DLL"
+                I-Start,     314570,       python.exe (6700), 0x00007ffebdf30000, 0x00007ffebdf39000, 0x000149af,    0x69d55afd, 0x00007ffebdf30000, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\DLLs\select.pyd", , "\Device\HarddiskVolume2\Users\Administrator\AppData\Local\Programs\Python\Python313\DLLs\select.pyd"
+                I-Start,     324707,       python.exe (6700), 0x00007ffec6120000, 0x00007ffec6188000, 0x0006f681,    0x66bacc45, 0x00007ffec6120000, "C:\Windows\System32\mswsock.dll", , "\Device\HarddiskVolume2\Windows\System32\mswsock.dll"
+                I-Start,     329654,       python.exe (6700), 0x00007ffec5520000, 0x00007ffec5537000, 0x00020ebc,    0xe26c5f23, 0x00007ffec5520000, "C:\Windows\System32\kernel.appcore.dll", , "\Device\HarddiskVolume2\Windows\System32\kernel.appcore.dll"
+                  P-End,     331515,       python.exe (6700),       2684,          2, 0x0000ae895675a080, 0x00000000, 0x0000000078c81000, 0x00000000, S-1-5-21-136546351-3326621074-3406081562-500, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe" "C:\Users\func_scripts\func_39.py" , <none>, <none>
+
+=== Raw syscalls attributed via stackwalk (TID->PID, 3 python TIDs, MARKER WINDOW [325679..325743]) ===
+Marker window: 64 us; Process lifetime stackwalks=2537, in-window=2
+Total syscalls for PID 6700: 2
+Unique service routines: 2  (resolved to symbol: 2)
+
+Top syscall service routines (kernel address  Image!Function):
+       1  0xfffff806181886d0  ntoskrnl.exe!NtCreateFile
+       1  0xfffff806181632a0  ntoskrnl.exe!NtDeviceIoControlFile
+
+=== Structured event-type counts (events tagged with PID 6700) ===
+     938  Microsoft-Windows-Kernel-File/OperationEnd/win:Info
+     938  FileIoOpEnd
+     386  Microsoft-Windows-Kernel-File/QueryInformation/win:Info
+     386  FileIoQueryInfo
+     170  FileIoCreate
+     170  Microsoft-Windows-Kernel-File/Create/win:Info
+     150  Microsoft-Windows-Kernel-File/Cleanup/win:Info
+     150  FileIoCleanup
+     137  Microsoft-Windows-Kernel-File/Close/win:Info
+     137  FileIoClose
+      65  UnknownEvent/Classic
+      44  ImageId
+      44  DbgId/RSDS
+      43  Microsoft-Windows-Kernel-File/NameCreate/win:Info
+      34  Microsoft-Windows-Kernel-File/DirEnum/win:Info
+      34  FileIoDirEnum
+      32  FileIoRead
+      32  Microsoft-Windows-Kernel-File/Read/win:Info
+      22  I-End
+      22  I-Start
+      13  Microsoft-Windows-Kernel-File/FSCTL/win:Info
+      13  FileIoFSCTL
+      13  FileIoQueryEA
+      13  Microsoft-Windows-Kernel-File/QueryEA/win:Info
+       3  T-End
+       2  Microsoft-Windows-Kernel-File/Write/win:Info
+       2  FileIoWrite
+       2  Microsoft-Windows-Kernel-File/NameDelete/win:Info
+       1  P-End
+       1  P-Start
+
+=== Top file paths touched (FileIo Create/Delete/Read/Write/Cleanup) ===
+    54  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\DLLs
+    45  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib
+    42  C:\Users\func_scripts
+    24  C:\Users\Administrator\AppData\Local\Programs\Python\Python313
+    22  C:\Users\func_scripts\func_39.py
+    21  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages
+    18  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings
+    15  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python3.dll
+    12  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\DLLs\_socket.pyd
+    12  C:\Windows\system32\tzres.dll
+    12  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\DLLs\select.pyd
+    11  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python313.dll
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\__pycache__\operator.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\__pycache__\reprlib.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\__pycache__\gbk.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\__pycache__\utf_8.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\__pycache__\enum.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\__pycache__\types.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\__pycache__\aliases.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\__pycache__\socket.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\__pycache__\__init__.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\__pycache__\functools.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\__pycache__\selectors.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\collections\__pycache__\__init__.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\__pycache__\keyword.cpython-313.pyc
+     6  C:\Windows\system32\kernel.appcore.dll
+     6  C:\Windows\system32\version.dll
+     6  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\operator.py
+     6  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe
+     6  C:\Windows\system32\mswsock.dll

@@ -1,0 +1,20 @@
+{
+  "sample_id": "sample41",
+  "reasons": [
+    "候选3的conclusion严格包含命中代码行原文，格式完全对齐。",
+    "候选3的facts和logic内部字段齐全，F1、F2、F3、L1、L2、L3均完整。",
+    "候选3的F1核心功能描述清晰且与系统调用日志（NtDeviceIoControlFile）匹配，指明了AFD驱动和套接字控制。",
+    "候选3的F3严格遵循“动作+对象”格式，为“设置套接字TCP_NODELAY选项”，无多余解释。",
+    "候选3的L1调用链层级合规，为“代码行为 → Winsock库函数 → 系统调用”，共2跳，且包含封装层。",
+    "候选3的L2和L3均为清晰的单选式表达（选项A），并给出了具体理由，便于判分。",
+    "候选1的L1调用链超过2跳，包含“AFD驱动IOCTL”作为额外中间层，不符合规范。",
+    "候选1的L2理由“setsockopt直接映射到内核IOCTL”过于笼统，不如候选3具体指明“通过IOCTL向AFD驱动发送控制命令”。",
+    "候选2的F1核心功能描述“向设备驱动发送一个控制码，执行特定I/O操作”过于通用，未与具体日志（套接字控制）紧密关联。",
+    "候选2的L2选项为D，理由“其他代码执行不同网络操作或相似的选项设置”逻辑混乱，未正确说明为何是这行代码触发。",
+    "候选2的L1调用链“C函数setsockopt”不准确，在Windows环境下应为Winsock，与日志环境不一致。",
+    "候选3的F2选项D理由“设置TCP套接字选项属于网络操作”简洁准确，而候选1和候选2的同类理由表述稍显冗余或模糊。",
+    "候选3整体与系统调用日志（NtDeviceIoControlFile用于套接字控制）的一致性最高，约束清晰，无引入无来源的函数或库。",
+    "候选1和候选2在部分字段（如L1、L2）存在格式或内容上的瑕疵，降低了可判分性。"
+  ],
+  "judge_best": "{\"conclusion\":\"代码行[s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)]最可能触发或产生该系统调用\",\"facts\":{\"F1\":{\"syscall\":\"NtDeviceIoControlFile\",\"summary\":\"通过IOCTL接口向AFD驱动发送套接字控制命令\"},\"F2\":{\"option\":\"D\",\"reason\":\"设置TCP套接字选项属于网络操作\"},\"F3\":\"设置套接字TCP_NODELAY选项\"},\"logic\":{\"L1\":\"s.setsockopt(IPPROTO_TCP, TCP_NODELAY, 1) → Winsock setsockopt() → NtDeviceIoControlFile\",\"L2\":{\"option\":\"A\",\"reason\":\"setsockopt直接通过IOCTL向AFD驱动发送控制命令，唯一直接触发该系统调用\"},\"L3\":{\"option\":\"A\",\"reason\":\"代码无条件执行setsockopt，无分支或延迟机制\"}}}"
+}

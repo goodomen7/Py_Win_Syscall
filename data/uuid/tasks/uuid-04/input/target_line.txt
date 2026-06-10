@@ -1,0 +1,2 @@
+    result = uuid6_std()
+        result = uuid6_pkg()

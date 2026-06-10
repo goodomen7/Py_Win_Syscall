@@ -1,0 +1,1 @@
+fd = os.open(tmp_path, os.O_CREAT | os.O_WRONLY)

@@ -1,0 +1,2 @@
+s.settimeout(5.0)             # 触发 ioctlsocket
+s.settimeout(None)            # 触发 ioctlsocket

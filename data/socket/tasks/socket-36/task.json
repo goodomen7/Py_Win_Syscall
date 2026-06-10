@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-36",
+  "library": "socket",
+  "target_line": "s.sendto(b\"ping\", (\"127.0.0.1\", 9))   # port 9 = discard",
+  "target_syscall": "NtDeviceIoControlFile",
+  "num_models_answered": 11,
+  "num_models_scored": 10,
+  "has_best_answer": true,
+  "has_scores": true
+}

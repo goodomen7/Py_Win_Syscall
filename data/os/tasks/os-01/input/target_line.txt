@@ -1,0 +1,7 @@
+
+try:
+    for i in range(200):
+        del os.environ[f"_FILL_{i}"]
+    os.environ["_TRIGGER_EXPAND"] = "z" * (32767 - len("_TRIGGER_EXPAND") - 1)
+except Exception as e:
+    print(f"error: {e}")

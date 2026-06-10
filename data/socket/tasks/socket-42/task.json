@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-42",
+  "library": "socket",
+  "target_line": "c.shutdown(socket.SHUT_RDWR)",
+  "target_syscall": "NtDeviceIoControlFile",
+  "num_models_answered": 11,
+  "num_models_scored": 7,
+  "has_best_answer": true,
+  "has_scores": true
+}

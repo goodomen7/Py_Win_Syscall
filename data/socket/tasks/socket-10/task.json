@@ -1,0 +1,10 @@
+{
+  "task_id": "socket-10",
+  "library": "socket",
+  "target_line": "name = socket.gethostname()",
+  "target_syscall": "NtQueryValueKey",
+  "num_models_answered": 11,
+  "num_models_scored": 6,
+  "has_best_answer": true,
+  "has_scores": true
+}

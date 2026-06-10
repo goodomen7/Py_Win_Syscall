@@ -1,0 +1,16 @@
+{
+  "sample_id": "sample08",
+  "reasons": [
+    "候选1的conclusion包含命中代码行原文，格式完全对齐预测结果，可直接判分。",
+    "候选1的facts结构完整，包含F1、F2、F3，且F3为‘查询信息-文件’，符合‘动作+对象’格式要求。",
+    "候选1的logic包含L1、L2、L3，L1层级为‘代码行为 → 库函数/运行时机制 → 系统调用’，符合最多2跳的规范。",
+    "候选1的F1核心功能‘查询文件对象信息’简短清晰，与syscall名称匹配。",
+    "候选2的F1 syscall为‘NtQueryValueKey’，但日志中实际syscall为‘NtQueryInformationFile’，与日志矛盾，应淘汰。",
+    "候选2的F3为‘查询注册表键值’，动作对象形式正确，但内容与syscall功能不匹配，存在缺陷。",
+    "候选2的L2选项为D，但理由‘gethostname()等函数也会触发此调用’未明确说明为何是这行代码，理由空泛。",
+    "候选2的L3选项为A，理由‘该代码行被无条件执行’未说明是否依赖额外条件，约束过泛，不可判分。",
+    "候选1的L2选项为D，理由‘多处导入/网络解析也会触发文件查询’虽简短，但结合了代码行上下文，优于候选2。",
+    "候选1的L3选项为D，理由‘解析过程由系统DNS/库内部策略决定’说明了依赖额外条件，约束清晰，可判分。"
+  ],
+  "judge_best": "{ \"conclusion\": \"代码行[fqdn = socket.getfqdn()]最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtQueryInformationFile\", \"summary\": \"查询文件对象信息\" }, \"F2\": { \"option\": \"A\", \"reason\": \"syscall为文件信息查询\" }, \"F3\": \"查询信息-文件\" }, \"logic\": { \"L1\": \"fqdn = socket.getfqdn() → socket.getfqdn实现调用gethostname/解析配置 → Windows DNS/主机名解析库读取系统文件 → NtQueryInformationFile\", \"L2\": { \"option\": \"D\", \"reason\": \"多处导入/网络解析也会触发文件查询\" }, \"L3\": { \"option\": \"D\", \"reason\": \"解析过程由系统DNS/库内部策略决定\" } } }"
+}

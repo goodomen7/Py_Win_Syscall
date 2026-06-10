@@ -1,0 +1,10 @@
+{
+  "task_id": "signal-03",
+  "library": "signal",
+  "target_line": "signal.signal(signal.SIGINT, original_handler)",
+  "target_syscall": "NtSetInformationFile",
+  "num_models_answered": 11,
+  "num_models_scored": 7,
+  "has_best_answer": true,
+  "has_scores": true
+}

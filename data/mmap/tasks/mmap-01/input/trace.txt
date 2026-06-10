@@ -1,0 +1,92 @@
+=== Process info (PID 5940, ETL: func_01.etl) ===
+                P-Start,     247538,       python.exe (5940),       3452,          2, 0x0000ae8951aa3080, 0x000000003ea7e000, 0x00000000, S-1-5-21-136546351-3326621074-3406081562-500, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe" "C:\Users\func_scripts\func_01.py" , <none>, <none>
+                I-Start,     258921,       python.exe (5940), 0x00007ff71f010000, 0x00007ff71f02a000, 0x0001c1ae,    0x69d55b42, 0x00007ff71f010000, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe", , "\Device\HarddiskVolume2\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe"
+                I-Start,     259024,       python.exe (5940), 0x00007ffec96c0000, 0x00007ffec98c3000, 0x0020e450,    0x6e40a9c3, 0x00007ffec96c0000, "C:\Windows\System32\ntdll.dll", , "\Device\HarddiskVolume2\Windows\System32\ntdll.dll"
+                I-Start,     260438,       python.exe (5940), 0x00007ffec8260000, 0x00007ffec831c000, 0x000cdb41,    0x81965f2e, 0x00007ffec8260000, "C:\Windows\System32\kernel32.dll", , "\Device\HarddiskVolume2\Windows\System32\kernel32.dll"
+                I-Start,     260663,       python.exe (5940), 0x00007ffec6c20000, 0x00007ffec6f91000, 0x0037eea3,    0xe1a1a545, 0x00007ffec6c20000, "C:\Windows\System32\KernelBase.dll", , "\Device\HarddiskVolume2\Windows\System32\KernelBase.dll"
+                I-Start,     268166,       python.exe (5940), 0x00007ffec7340000, 0x00007ffec7450000, 0x001225cd,    0xeb78ec60, 0x00007ffec7340000, "C:\Windows\System32\ucrtbase.dll", , "\Device\HarddiskVolume2\Windows\System32\ucrtbase.dll"
+                I-Start,     268609,       python.exe (5940), 0x00007ffeb61a0000, 0x00007ffeb61be000, 0x0001e26d,    0x782c6426, 0x00007ffeb61a0000, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\vcruntime140.dll", , "\Device\HarddiskVolume2\Users\Administrator\AppData\Local\Programs\Python\Python313\vcruntime140.dll"
+                I-Start,     270293,       python.exe (5940), 0x00007ffe9fe00000, 0x00007ffea0456000, 0x005e493a,    0x69d55ac9, 0x00007ffe9fe00000, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python313.dll", , "\Device\HarddiskVolume2\Users\Administrator\AppData\Local\Programs\Python\Python313\python313.dll"
+                I-Start,     271465,       python.exe (5940), 0x00007ffec8e40000, 0x00007ffec8eb1000, 0x000823a7,    0x2743399e, 0x00007ffec8e40000, "C:\Windows\System32\ws2_32.dll", , "\Device\HarddiskVolume2\Windows\System32\ws2_32.dll"
+                I-Start,     271694,       python.exe (5940), 0x00007ffec8510000, 0x00007ffec8630000, 0x0012fd37,    0x923914c8, 0x00007ffec8510000, "C:\Windows\System32\rpcrt4.dll", , "\Device\HarddiskVolume2\Windows\System32\rpcrt4.dll"
+                I-Start,     271904,       python.exe (5940), 0x00007ffec75c0000, 0x00007ffec75e7000, 0x0002c01e,    0x8eb6ca22, 0x00007ffec75c0000, "C:\Windows\System32\bcrypt.dll", , "\Device\HarddiskVolume2\Windows\System32\bcrypt.dll"
+                I-Start,     272052,       python.exe (5940), 0x00007ffec8ec0000, 0x00007ffec8f71000, 0x000c2715,    0xd196fc33, 0x00007ffec8ec0000, "C:\Windows\System32\advapi32.dll", , "\Device\HarddiskVolume2\Windows\System32\advapi32.dll"
+                I-Start,     272232,       python.exe (5940), 0x00007ffec81b0000, 0x00007ffec8253000, 0x000a874f,    0xee390ecb, 0x00007ffec81b0000, "C:\Windows\System32\msvcrt.dll", , "\Device\HarddiskVolume2\Windows\System32\msvcrt.dll"
+                I-Start,     272422,       python.exe (5940), 0x00007ffec8630000, 0x00007ffec86d2000, 0x000ae5fa,    0x6e224083, 0x00007ffec8630000, "C:\Windows\System32\sechost.dll", , "\Device\HarddiskVolume2\Windows\System32\sechost.dll"
+                I-Start,     272908,       python.exe (5940), 0x00007ffec1350000, 0x00007ffec135a000, 0x00012976,    0xdb212c5b, 0x00007ffec1350000, "C:\Windows\System32\version.dll", , "\Device\HarddiskVolume2\Windows\System32\version.dll"
+                I-Start,     276350,       python.exe (5940), 0x00007ffec72c0000, 0x00007ffec733f000, 0x0008ecdb,    0x31c2c51e, 0x00007ffec72c0000, "C:\Windows\System32\bcryptprimitives.dll", , "\Device\HarddiskVolume2\Windows\System32\bcryptprimitives.dll"
+                I-Start,     311957,       python.exe (5940), 0x00007ffec5520000, 0x00007ffec5537000, 0x00020ebc,    0xe26c5f23, 0x00007ffec5520000, "C:\Windows\System32\kernel.appcore.dll", , "\Device\HarddiskVolume2\Windows\System32\kernel.appcore.dll"
+                  P-End,     312830,       python.exe (5940),       3452,          2, 0x0000ae8951aa3080, 0x00000000, 0x000000003ea7e000, 0x00000000, S-1-5-21-136546351-3326621074-3406081562-500, "C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe" "C:\Users\func_scripts\func_01.py" , <none>, <none>
+
+=== Raw syscalls attributed via stackwalk (TID->PID, 3 python TIDs, MARKER WINDOW [309095..309182]) ===
+Marker window: 87 us; Process lifetime stackwalks=1468, in-window=3
+Total syscalls for PID 5940: 3
+Unique service routines: 3  (resolved to symbol: 3)
+
+Top syscall service routines (kernel address  Image!Function):
+       1  0xfffff80618181bc0  ntoskrnl.exe!NtMapViewOfSection
+       1  0xfffff80618184d80  ntoskrnl.exe!NtCreateSection
+       1  0xfffff806181886d0  ntoskrnl.exe!NtCreateFile
+
+=== Structured event-type counts (events tagged with PID 5940) ===
+     455  FileIoOpEnd
+     455  Microsoft-Windows-Kernel-File/OperationEnd/win:Info
+     167  FileIoQueryInfo
+     167  Microsoft-Windows-Kernel-File/QueryInformation/win:Info
+      88  FileIoCreate
+      88  Microsoft-Windows-Kernel-File/Create/win:Info
+      72  FileIoCleanup
+      72  Microsoft-Windows-Kernel-File/Cleanup/win:Info
+      68  FileIoClose
+      68  Microsoft-Windows-Kernel-File/Close/win:Info
+      57  UnknownEvent/Classic
+      32  DbgId/RSDS
+      32  ImageId
+      30  FileIoDirEnum
+      30  Microsoft-Windows-Kernel-File/DirEnum/win:Info
+      19  Microsoft-Windows-Kernel-File/NameCreate/win:Info
+      19  FileIoRead
+      19  Microsoft-Windows-Kernel-File/Read/win:Info
+      16  I-End
+      16  I-Start
+       4  FileIoFSCTL
+       4  FileIoQueryEA
+       4  Microsoft-Windows-Kernel-File/QueryEA/win:Info
+       4  Microsoft-Windows-Kernel-File/FSCTL/win:Info
+       3  T-End
+       2  FileIoWrite
+       2  Microsoft-Windows-Kernel-File/Write/win:Info
+       1  P-Start
+       1  P-End
+
+=== Top file paths touched (FileIo Create/Delete/Read/Write/Cleanup) ===
+    26  C:\Users\func_scripts\func_01.py
+    24  C:\Users\Administrator\AppData\Local\Programs\Python\Python313
+    21  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\site-packages
+    21  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\DLLs
+    18  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings
+    18  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib
+    15  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python313.dll
+    12  C:\Windows\system32\tzres.dll
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\__pycache__\aliases.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\__pycache__\utf_8.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\__pycache__\__init__.cpython-313.pyc
+     7  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\__pycache__\gbk.cpython-313.pyc
+     6  C:\Windows\system32\zh-CN\tzres.dll.mui
+     6  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe
+     6  C:\Windows\system32\version.dll
+     6  C:\Windows\system32\kernel.appcore.dll
+     6  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\vcruntime140.dll
+     6  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\__init__.py
+     6  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\utf_8.py
+     6  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\aliases.py
+     6  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\encodings\gbk.py
+     4  C:\$LogFile
+     3  C:\Users
+     3  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python313.zip
+     3  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\Lib\os.py
+     3  C:\Windows\system32\zh-CN\KernelBase.dll.mui
+     2  C:\Users\Administrator\AppData\Local\Programs\Python\pyvenv.cfg
+     2  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python._pth
+     2  C:\Users\Administrator\AppData\Local\Programs\Python\Python313\pyvenv.cfg
+     2  C:\Users\traces\func_01_stdout.txt

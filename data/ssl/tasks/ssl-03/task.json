@@ -1,0 +1,10 @@
+{
+  "task_id": "ssl-03",
+  "library": "ssl",
+  "target_line": "cert = ssl.get_server_certificate((host, port))",
+  "target_syscall": "NtDeviceIoControlFile",
+  "num_models_answered": 11,
+  "num_models_scored": 9,
+  "has_best_answer": true,
+  "has_scores": true
+}
