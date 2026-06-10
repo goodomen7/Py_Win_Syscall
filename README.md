@@ -1,5 +1,7 @@
 # py-windows-syscall-bench
 
+**English** | [中文](README.zh.md)
+
 A benchmark for evaluating **LLM chain-of-thought (CoT) reasoning** that links a
 single Python source line to the **Windows native system call** it triggers, and
 judges the reasoning against curated ground truth.
