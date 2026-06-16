@@ -1,0 +1,1646 @@
+{
+  "mmap": [
+    {
+      "id": "mmap-01",
+      "function": "mmap.mmap",
+      "syscalls": [
+        {
+          "name": "NtCreateSection",
+          "condition": "必定（核心）"
+        },
+        {
+          "name": "NtMapViewOfSection",
+          "condition": "必定（核心）"
+        },
+        {
+          "name": "NtDuplicateObject",
+          "condition": "fileno 有效（真实文件） 且 trackfd=True"
+        },
+        {
+          "name": "NtQueryInformationFile",
+          "condition": "fileno 有效（真实文件） 且 length=0"
+        }
+      ]
+    },
+    {
+      "id": "mmap-02",
+      "function": "mmap.close",
+      "syscalls": [
+        {
+          "name": "NtClose",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "mmap-03",
+      "function": "mmap.resize",
+      "syscalls": [
+        {
+          "name": "NtClose",
+          "condition": null
+        },
+        {
+          "name": "NtOpenSection",
+          "condition": "初次调用"
+        },
+        {
+          "name": "NtQueryInformationFile",
+          "condition": "初次调用"
+        },
+        {
+          "name": "NtSetInformationFile",
+          "condition": null
+        },
+        {
+          "name": "NtCreateSection",
+          "condition": null
+        },
+        {
+          "name": "NtMapViewOfSection",
+          "condition": null
+        },
+        {
+          "name": "NtUnmapViewOfSection",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "mmap-04",
+      "function": "mmap.rfind",
+      "syscalls": [
+        {
+          "name": "NtQueryInformationFile",
+          "condition": "有 file_handle"
+        }
+      ]
+    }
+  ],
+  "msvcrt": [
+    {
+      "id": "msvcrt-01",
+      "function": "msvcrt.kbhit",
+      "syscalls": [
+        {
+          "name": "NtWaitForSingleObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "msvcrt-02",
+      "function": "msvcrt.getch",
+      "syscalls": [
+        {
+          "name": "NtWaitForSingleObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "msvcrt-03",
+      "function": "msvcrt.putch",
+      "syscalls": [
+        {
+          "name": "NtWriteFile",
+          "condition": null
+        },
+        {
+          "name": "NtWaitForSingleObject",
+          "condition": "仅 FILE_FLAG_OVERLAPPED 句柄"
+        }
+      ]
+    }
+  ],
+  "multiprocessing": [
+    {
+      "id": "multiprocessing-01",
+      "function": "multiprocessing.active_children",
+      "syscalls": [
+        {
+          "name": "NtQueryInformationProcess",
+          "condition": null
+        },
+        {
+          "name": "NtWaitForSingleObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "multiprocessing-02",
+      "function": "multiprocessing.cpu_count",
+      "syscalls": [
+        {
+          "name": "NtQuerySystemInformation",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "os": [
+    {
+      "id": "os-01",
+      "function": "os.environ",
+      "syscalls": [
+        {
+          "name": "NtAllocateVirtualMemory",
+          "condition": "写操作且环境块需扩容时触发"
+        },
+        {
+          "name": "NtFreeVirtualMemory",
+          "condition": "写操作且环境块需扩容时触发 / 删操作时触发"
+        }
+      ]
+    },
+    {
+      "id": "os-02",
+      "function": "os.chdir",
+      "syscalls": [
+        {
+          "name": "NtOpenFile",
+          "condition": null
+        },
+        {
+          "name": "NtQueryVolumeInformationFile",
+          "condition": null
+        },
+        {
+          "name": "NtClose",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-03",
+      "function": "os.getppid",
+      "syscalls": [
+        {
+          "name": "NtQueryInformationProcess",
+          "condition": "首次调用"
+        }
+      ]
+    },
+    {
+      "id": "os-04",
+      "function": "os.putenv",
+      "syscalls": [
+        {
+          "name": "NtOpenSection",
+          "condition": "代码页首次使用，缓存未命中"
+        },
+        {
+          "name": "NtCreateSection",
+          "condition": "Section 对象尚未存在"
+        },
+        {
+          "name": "NtMapViewOfSection",
+          "condition": "Section 映射到进程地址空间"
+        },
+        {
+          "name": "NtClose",
+          "condition": "关闭 Section 句柄"
+        },
+        {
+          "name": "NtQueryVirtualMemory",
+          "condition": "环境块容量不足时"
+        },
+        {
+          "name": "NtAllocateVirtualMemory",
+          "condition": "环境块容量不足时"
+        },
+        {
+          "name": "NtFreeVirtualMemory",
+          "condition": "释放旧环境块"
+        }
+      ]
+    },
+    {
+      "id": "os-05",
+      "function": "os.close",
+      "syscalls": [
+        {
+          "name": "NtClose",
+          "condition": "有效 fd"
+        }
+      ]
+    },
+    {
+      "id": "os-06",
+      "function": "os.fchmod",
+      "syscalls": [
+        {
+          "name": "NtQueryInformationFile",
+          "condition": null
+        },
+        {
+          "name": "NtSetInformationFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-07",
+      "function": "os.fstat",
+      "syscalls": [
+        {
+          "name": "NtQueryInformationFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-08",
+      "function": "os.fsync",
+      "syscalls": [
+        {
+          "name": "NtFlushBuffersFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-09",
+      "function": "os.ftruncate",
+      "syscalls": [
+        {
+          "name": "NtSetInformationFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-10",
+      "function": "os.get_blocking",
+      "syscalls": [
+        {
+          "name": "NtQueryInformationFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-11",
+      "function": "os.open",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-12",
+      "function": "os.pipe",
+      "syscalls": [
+        {
+          "name": "NtCreateNamedPipeFile",
+          "condition": null
+        },
+        {
+          "name": "NtOpenFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-13",
+      "function": "os.read",
+      "syscalls": [
+        {
+          "name": "NtReadFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-14",
+      "function": "os.readlink",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtFsControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-15",
+      "function": "os.set_blocking",
+      "syscalls": [
+        {
+          "name": "NtSetInformationFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-16",
+      "function": "os.write",
+      "syscalls": [
+        {
+          "name": "NtWriteFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-17",
+      "function": "os.get_inheritable",
+      "syscalls": [
+        {
+          "name": "NtQueryObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-18",
+      "function": "os.set_inheritable",
+      "syscalls": [
+        {
+          "name": "NtSetInformationObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-19",
+      "function": "os.get_handle_inheritable",
+      "syscalls": [
+        {
+          "name": "NtQueryObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-20",
+      "function": "os.set_handle_inheritable",
+      "syscalls": [
+        {
+          "name": "NtSetInformationObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-21",
+      "function": "os.access",
+      "syscalls": [
+        {
+          "name": "NtQueryAttributesFile",
+          "condition": null
+        },
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-22",
+      "function": "os.chmod",
+      "syscalls": [
+        {
+          "name": "NtOpenFile",
+          "condition": null
+        },
+        {
+          "name": "NtSetInformationFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-23",
+      "function": "os.lchmod",
+      "syscalls": [
+        {
+          "name": "NtOpenFile",
+          "condition": null
+        },
+        {
+          "name": "NtSetInformationFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-24",
+      "function": "os.link",
+      "syscalls": [
+        {
+          "name": "NtSetInformationFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-25",
+      "function": "os.listdir",
+      "syscalls": [
+        {
+          "name": "NtQueryDirectoryFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-26",
+      "function": "os.listdrives",
+      "syscalls": [
+        {
+          "name": "NtQueryInformationProcess",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-27",
+      "function": "os.listmounts",
+      "syscalls": [
+        {
+          "name": "NtFsControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-28",
+      "function": "os.listvolumes",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-29",
+      "function": "os.lstat",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtQueryInformationFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-30",
+      "function": "os.mkdir",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-31",
+      "function": "os.makedirs",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-32",
+      "function": "os.rename",
+      "syscalls": [
+        {
+          "name": "NtOpenFile",
+          "condition": "目标不存在、目标已存在，rename、目标已存在，replace"
+        },
+        {
+          "name": "NtCreateFile",
+          "condition": "目标不存在、目标已存在，replace"
+        },
+        {
+          "name": "NtClose",
+          "condition": "目标已存在，rename"
+        },
+        {
+          "name": "NtSetInformationFile",
+          "condition": "目标不存在、目标已存在，replace"
+        }
+      ]
+    },
+    {
+      "id": "os-33",
+      "function": "os.replace",
+      "syscalls": [
+        {
+          "name": "NtSetInformationFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-34",
+      "function": "os.rmdir",
+      "syscalls": [
+        {
+          "name": "NtOpenFile",
+          "condition": null
+        },
+        {
+          "name": "NtSetInformationFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-35",
+      "function": "os.scandir",
+      "syscalls": [
+        {
+          "name": "NtQueryDirectoryFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "os-36",
+      "function": "os.stat",
+      "syscalls": [
+        {
+          "name": "NtQueryInformationFile",
+          "condition": null
+        },
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "select": [
+    {
+      "id": "select-01",
+      "function": "select.select",
+      "syscalls": [
+        {
+          "name": "NtCreateEvent",
+          "condition": "socket 已立即就绪"
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": "socket 已立即就绪"
+        },
+        {
+          "name": "NtClose",
+          "condition": "socket 已立即就绪"
+        },
+        {
+          "name": "NtWaitForSingleObject",
+          "condition": "无 socket 就绪需阻塞等待"
+        }
+      ]
+    }
+  ],
+  "signal": [
+    {
+      "id": "signal-01",
+      "function": "signal.raise_signal",
+      "syscalls": [
+        {
+          "name": "NtTerminateProcess",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "signal-02",
+      "function": "signal.set_wakeup_fd",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "signal-03",
+      "function": "signal.signal",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "socket": [
+    {
+      "id": "socket-01",
+      "function": "socket.socket",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-02",
+      "function": "socket.socketpair",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-03",
+      "function": "socket.create_connection",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceNtCreateEvent",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-04",
+      "function": "socket.create_server",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        },
+        {
+          "name": "NtCreateEvent",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-05",
+      "function": "socket.fromfd",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-06",
+      "function": "socket.fromshare",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-07",
+      "function": "socket.getaddrinfo",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-08",
+      "function": "socket.getfqdn",
+      "syscalls": [
+        {
+          "name": "NtOpenKey",
+          "condition": null
+        },
+        {
+          "name": "NtQueryValueKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-09",
+      "function": "socket.gethostbyname",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-10",
+      "function": "socket.gethostname",
+      "syscalls": [
+        {
+          "name": "NtOpenKey",
+          "condition": null
+        },
+        {
+          "name": "NtQueryValueKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-11",
+      "function": "socket.gethostbyaddr",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-12",
+      "function": "socket.getnameinfo",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-13",
+      "function": "socket.getprotobyname",
+      "syscalls": [
+        {
+          "name": "NtOpenKey",
+          "condition": null
+        },
+        {
+          "name": "NtQueryValueKey",
+          "condition": null
+        },
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtReadFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-14",
+      "function": "socket.getservbyname",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-15",
+      "function": "socket.getservbyport",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-16",
+      "function": "socket.if_nameindex",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-17",
+      "function": "socket.if_nametoindex",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-18",
+      "function": "socket.if_indextoname",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-19",
+      "function": "socket.accept",
+      "syscalls": [
+        {
+          "name": "NtCreateEvent",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        },
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtQueryObject",
+          "condition": null
+        },
+        {
+          "name": "NtSetInformationObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-20",
+      "function": "socket.bind",
+      "syscalls": [
+        {
+          "name": "NtCreateEvent",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-21",
+      "function": "socket.close",
+      "syscalls": [
+        {
+          "name": "NtCreateEvent",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        },
+        {
+          "name": "NtClose",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-22",
+      "function": "socket.connect",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-23",
+      "function": "socket.dup",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtQueryObject",
+          "condition": null
+        },
+        {
+          "name": "NtSetInformationObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-24",
+      "function": "socket.get_inheritable",
+      "syscalls": [
+        {
+          "name": "NtQueryObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-25",
+      "function": "socket.getpeername",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-26",
+      "function": "socket.getsockname",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-27",
+      "function": "socket.getsockopt",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": "SOL_SOCKET常用选项无调用"
+        }
+      ]
+    },
+    {
+      "id": "socket-28",
+      "function": "socket.ioctl",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-29",
+      "function": "socket.listen",
+      "syscalls": [
+        {
+          "name": "NtCreateEvent",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-30",
+      "function": "socket.recv",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-31",
+      "function": "socket.recvfrom",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-32",
+      "function": "socket.recvfrom_into",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-33",
+      "function": "socket.recv_into",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-34",
+      "function": "socket.send",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-35",
+      "function": "socket.sendall",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-36",
+      "function": "socket.sendto",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-37",
+      "function": "socket.sendfile",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-38",
+      "function": "socket.set_inheritable",
+      "syscalls": [
+        {
+          "name": "NtQueryObject",
+          "condition": null
+        },
+        {
+          "name": "NtSetInformationObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-39",
+      "function": "socket.setblocking",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-40",
+      "function": "socket.settimeout",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-41",
+      "function": "socket.setsockopt",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": "SO_BROADCAST无调用"
+        }
+      ]
+    },
+    {
+      "id": "socket-42",
+      "function": "socket.shutdown",
+      "syscalls": [
+        {
+          "name": "NtCreateEvent",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "socket-43",
+      "function": "socket.share",
+      "syscalls": [
+        {
+          "name": "NtDuplicateObject",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "ssl": [
+    {
+      "id": "ssl-01",
+      "function": "ssl.create_default_context",
+      "syscalls": [
+        {
+          "name": "NtOpenKey",
+          "condition": "无显式 CA 文件"
+        }
+      ]
+    },
+    {
+      "id": "ssl-02",
+      "function": "ssl.cert_time_to_seconds",
+      "syscalls": [
+        {
+          "name": "NtQuerySystemInformation",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "ssl-03",
+      "function": "ssl.get_server_certificate",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtCreateEvent",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "ssl-04",
+      "function": "ssl.enum_certificates",
+      "syscalls": [
+        {
+          "name": "NtOpenKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "ssl-05",
+      "function": "ssl.enum_crls",
+      "syscalls": [
+        {
+          "name": "NtOpenKey",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "time": [
+    {
+      "id": "time-01",
+      "function": "time.asctime",
+      "syscalls": [
+        {
+          "name": "NtQuerySystemInformation",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "time-02",
+      "function": "time.ctime",
+      "syscalls": [
+        {
+          "name": "NtQuerySystemInformation",
+          "condition": "首次调用"
+        }
+      ]
+    },
+    {
+      "id": "time-03",
+      "function": "time.get_clock_info",
+      "syscalls": [
+        {
+          "name": "NtQueryPerformanceCounter",
+          "condition": "\"monotonic\""
+        },
+        {
+          "name": "NtQueryPerformanceCounter",
+          "condition": "\"perf_counter\""
+        },
+        {
+          "name": "NtQueryInformationProcess",
+          "condition": "\"process_time\"",
+          "arg": "ProcessTimes"
+        },
+        {
+          "name": "NtQueryInformationThread",
+          "condition": "\"thread_time\"",
+          "arg": "ThreadTimes"
+        }
+      ]
+    },
+    {
+      "id": "time-04",
+      "function": "time.localtime",
+      "syscalls": [
+        {
+          "name": "NtQuerySystemInformation",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "time-05",
+      "function": "time.mktime",
+      "syscalls": [
+        {
+          "name": "NtQuerySystemInformation",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "time-06",
+      "function": "time.monotonic",
+      "syscalls": [
+        {
+          "name": "NtQueryPerformanceCounter",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "time-07",
+      "function": "time.perf_counter",
+      "syscalls": [
+        {
+          "name": "NtQueryPerformanceCounter",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "time-08",
+      "function": "time.process_time",
+      "syscalls": [
+        {
+          "name": "NtQueryInformationProcess",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "time-09",
+      "function": "time.sleep",
+      "syscalls": [
+        {
+          "name": "NtCreateTimer",
+          "condition": null
+        },
+        {
+          "name": "NtSetTimer",
+          "condition": null
+        },
+        {
+          "name": "NtResetEvent",
+          "condition": null
+        },
+        {
+          "name": "NtWaitForMultipleObjects",
+          "condition": null
+        },
+        {
+          "name": "NtClose",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "time-10",
+      "function": "time.strftime",
+      "syscalls": [
+        {
+          "name": "NtQuerySystemInformation",
+          "condition": "不提供 tuple（time.strftime(fmt)）"
+        }
+      ]
+    },
+    {
+      "id": "time-11",
+      "function": "time.thread_time",
+      "syscalls": [
+        {
+          "name": "NtQueryInformationThread",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "time-12",
+      "function": "time.time",
+      "syscalls": [
+        {
+          "name": "NtQueryPerformanceCounter",
+          "condition": "Windows 8 及以上"
+        }
+      ]
+    }
+  ],
+  "uuid": [
+    {
+      "id": "uuid-01",
+      "function": "uuid.uuid1",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "uuid-02",
+      "function": "uuid.uuid3",
+      "syscalls": [
+        {
+          "name": "NtAllocateVirtualMemory",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "uuid-03",
+      "function": "uuid.uuid5",
+      "syscalls": [
+        {
+          "name": "NtAllocateVirtualMemory",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "uuid-04",
+      "function": "uuid.uuid6",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "uuid-05",
+      "function": "uuid.getnode",
+      "syscalls": [
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "winreg": [
+    {
+      "id": "winreg-01",
+      "function": "winreg.CloseKey",
+      "syscalls": [
+        {
+          "name": "NtClose",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-02",
+      "function": "winreg.ConnectRegistry",
+      "syscalls": [
+        {
+          "name": "NtOpenKey",
+          "condition": null
+        },
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-03",
+      "function": "winreg.CreateKey",
+      "syscalls": [
+        {
+          "name": "NtCreateKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-04",
+      "function": "winreg.DeleteKey",
+      "syscalls": [
+        {
+          "name": "NtOpenKey",
+          "condition": null
+        },
+        {
+          "name": "NtDeleteKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-05",
+      "function": "winreg.DeleteValue",
+      "syscalls": [
+        {
+          "name": "NtDeleteValueKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-06",
+      "function": "winreg.SetValue",
+      "syscalls": [
+        {
+          "name": "NtSetValueKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-07",
+      "function": "winreg.EnumKey",
+      "syscalls": [
+        {
+          "name": "NtEnumerateKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-08",
+      "function": "winreg.EnumValue",
+      "syscalls": [
+        {
+          "name": "NtEnumerateValueKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-09",
+      "function": "winreg.FlushKey",
+      "syscalls": [
+        {
+          "name": "NtFlushKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-10",
+      "function": "winreg.LoadKey",
+      "syscalls": [
+        {
+          "name": "NtLoadKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-11",
+      "function": "winreg.OpenKey",
+      "syscalls": [
+        {
+          "name": "NtOpenKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-12",
+      "function": "winreg.QueryInfoKey",
+      "syscalls": [
+        {
+          "name": "NtQueryKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-13",
+      "function": "winreg.QueryValue",
+      "syscalls": [
+        {
+          "name": "NtQueryValueKey",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winreg-14",
+      "function": "winreg.SaveKey",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtSaveKey",
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "winsound": [
+    {
+      "id": "winsound-01",
+      "function": "winsound.Beep",
+      "syscalls": [
+        {
+          "name": "NtCreateFile",
+          "condition": null
+        },
+        {
+          "name": "NtDeviceIoControlFile",
+          "condition": null
+        },
+        {
+          "name": "NtClose",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winsound-02",
+      "function": "winsound.PlaySound",
+      "syscalls": [
+        {
+          "name": "NtCreateThread",
+          "condition": null
+        },
+        {
+          "name": "NtOpenKey",
+          "condition": null
+        },
+        {
+          "name": "NtQueryValueKey",
+          "condition": null
+        },
+        {
+          "name": "NtOpenFile",
+          "condition": null
+        },
+        {
+          "name": "NtCreateEvent",
+          "condition": null
+        },
+        {
+          "name": "NtWaitForSingleObject",
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "winsound-03",
+      "function": "winsound.MessageBeep",
+      "syscalls": [
+        {
+          "name": "NtUserCallOneParam",
+          "condition": null
+        }
+      ]
+    }
+  ]
+}

@@ -36,6 +36,13 @@ py-windows-syscall-bench/
 ├── README.md
 ├── metadata.json                  # global stats, module list, model list, schema notes
 ├── reorganize.py                  # script that builds this tree from the raw data
+├── reference/                     # static stdlib-function → NtAPI truth map (ground-truth source)
+│   ├── ground_truth.jsonl         #   one record per function (primary form)
+│   ├── ground_truth.json          #   same, grouped by library
+│   ├── ground_truth.csv           #   flattened (function, syscall) pairs
+│   ├── schema.json                #   JSON Schema for a record
+│   ├── build_reference.py         #   builder: source_md/*.md → the artifacts
+│   └── source_md/                 #   original research notes (full call chains)
 └── data/
     └── <module>/                  # one folder per Python stdlib module under test
         ├── module_under_test.py   # aggregate program exercising the module's functions
@@ -62,6 +69,23 @@ py-windows-syscall-bench/
 fully-processed tasks. The remaining 8 tasks ship with inputs, candidate answers,
 and model predictions only. Each task's `task.json` records `has_best_answer` and
 `has_scores` so consumers can filter.
+
+## Ground-truth source map (`reference/`)
+
+[`reference/`](reference) holds the static, hand-curated mapping from a Python
+stdlib function to the Windows native syscalls (`Nt*`) it can theoretically
+reach — the ground-truth *source* the per-task data is validated against. It is
+broader than the scored set (12 modules incl. `select`, `winreg`, `winsound`).
+See [`reference/README.md`](reference/README.md). Primary form, one record per
+function in [`reference/ground_truth.jsonl`](reference/ground_truth.jsonl):
+
+```json
+{"id": "os-02", "library": "os", "function": "os.chdir",
+ "syscalls": [{"name": "NtOpenFile", "condition": null},
+              {"name": "NtQueryVolumeInformationFile", "condition": null},
+              {"name": "NtClose", "condition": null}],
+ "source": "系统调用统计_windows_os库.md"}
+```
 
 ## File formats
 

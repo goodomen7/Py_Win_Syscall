@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "stdlib-function-to-ntapi-record",
+  "description": "One record in reference/ground_truth.jsonl: the static set of Windows native syscalls a Python standard-library function can trigger.",
+  "type": "object",
+  "required": ["id", "library", "function", "syscalls", "source"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable record id, '<library>-NN'.",
+      "pattern": "^[a-z0-9_]+-[0-9]{2,}$"
+    },
+    "library": {
+      "type": "string",
+      "description": "Python standard-library module name, e.g. 'os'."
+    },
+    "function": {
+      "type": "string",
+      "description": "Fully-qualified callable, e.g. 'os.chdir'."
+    },
+    "syscalls": {
+      "type": "array",
+      "description": "Native NtAPI syscalls the function may reach. Empty only if none apply.",
+      "items": {
+        "type": "object",
+        "required": ["name", "condition"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Native syscall, Nt* naming convention, e.g. 'NtCreateFile'.",
+            "pattern": "^Nt[A-Za-z0-9]+$"
+          },
+          "condition": {
+            "type": ["string", "null"],
+            "description": "Free-text trigger condition (Chinese). null means unconditional."
+          },
+          "arg": {
+            "type": "string",
+            "description": "Optional. Info-class / control argument that qualifies the syscall, e.g. 'ProcessTimes' for NtQueryInformationProcess."
+          }
+        }
+      }
+    },
+    "source": {
+      "type": "string",
+      "description": "Originating markdown note in reference/source_md/."
+    }
+  }
+}

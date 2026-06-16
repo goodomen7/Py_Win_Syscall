@@ -37,5 +37,14 @@
     "tasks": 113,
     "scored_tasks": 105,
     "tasks_with_best_answer": 105
+  },
+  "reference": {
+    "path": "reference/",
+    "description": "Static stdlib-function -> Windows NtAPI truth map; the ground-truth source the per-task data is validated against.",
+    "primary_file": "reference/ground_truth.jsonl",
+    "schema": "reference/schema.json",
+    "libraries": 12,
+    "functions": 131,
+    "function_syscall_pairs": 208
   }
 }
