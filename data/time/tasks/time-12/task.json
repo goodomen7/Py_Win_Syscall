@@ -3,8 +3,8 @@
   "library": "time",
   "target_line": "time.time()",
   "target_syscall": "NtQueryPerformanceCounter",
-  "num_models_answered": 11,
-  "num_models_scored": 10,
+  "num_models_answered": 14,
+  "num_models_scored": 12,
   "has_best_answer": true,
   "has_scores": true
 }

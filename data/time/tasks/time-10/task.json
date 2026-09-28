@@ -3,8 +3,8 @@
   "library": "time",
   "target_line": "time.strftime('%Y-%m-%d')",
   "target_syscall": "NtQuerySystemInformation",
-  "num_models_answered": 11,
-  "num_models_scored": 11,
+  "num_models_answered": 14,
+  "num_models_scored": 12,
   "has_best_answer": true,
   "has_scores": true
 }

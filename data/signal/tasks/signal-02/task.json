@@ -3,8 +3,8 @@
   "library": "signal",
   "target_line": "old_fd = signal.set_wakeup_fd(sock1.fileno())",
   "target_syscall": "NtDeviceIoControlFile",
-  "num_models_answered": 11,
-  "num_models_scored": 9,
+  "num_models_answered": 14,
+  "num_models_scored": 12,
   "has_best_answer": true,
   "has_scores": true
 }

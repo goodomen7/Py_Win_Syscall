@@ -3,8 +3,8 @@
   "library": "msvcrt",
   "target_line": "msvcrt.putch(test_char)  # Output a character to the console",
   "target_syscall": "NtWriteFile",
-  "num_models_answered": 11,
-  "num_models_scored": 10,
+  "num_models_answered": 14,
+  "num_models_scored": 12,
   "has_best_answer": true,
   "has_scores": true
 }

@@ -1,8 +1,8 @@
 {
   "library": "socket",
   "num_tasks": 43,
-  "num_scored_tasks": 38,
-  "num_tasks_with_best_answer": 38,
+  "num_scored_tasks": 43,
+  "num_tasks_with_best_answer": 43,
   "tasks": [
     "socket-01",
     "socket-02",

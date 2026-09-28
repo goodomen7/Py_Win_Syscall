@@ -1,8 +1,8 @@
 {
   "library": "ssl",
   "num_tasks": 5,
-  "num_scored_tasks": 3,
-  "num_tasks_with_best_answer": 3,
+  "num_scored_tasks": 5,
+  "num_tasks_with_best_answer": 5,
   "tasks": [
     "ssl-01",
     "ssl-02",

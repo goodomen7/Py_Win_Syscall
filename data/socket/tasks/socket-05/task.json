@@ -3,8 +3,8 @@
   "library": "socket",
   "target_line": "s2 = socket.fromfd(fd, socket.AF_INET, socket.SOCK_STREAM)",
   "target_syscall": "NtCreateFile",
-  "num_models_answered": 11,
-  "num_models_scored": 9,
+  "num_models_answered": 14,
+  "num_models_scored": 11,
   "has_best_answer": true,
   "has_scores": true
 }

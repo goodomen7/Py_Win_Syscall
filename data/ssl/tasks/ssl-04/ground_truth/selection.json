@@ -1,0 +1,14 @@
+{
+  "sample_id": "sample04",
+  "reasons": [
+    "候选 2 的 `conclusion` 字段格式完全符合规范，使用了 `代码行[...]` 的形式，便于自动化判分。",
+    "候选 2 的 `L1` 调用链 `ssl.enum_certificates(\"ROOT\") → Windows CryptoAPI → NtEnumerateKey` 结构清晰，严格遵守了“最多 2 跳”的规范。",
+    "候选 2 的 `F3` 字段 `枚举注册表子项` 严格遵循了“动作+对象”的格式要求，描述精准。",
+    "候选 2 识别的系统调用 `NtEnumerateKey` (枚举) 与代码 `ssl.enum_certificates` (枚举) 的语义高度一致，比候选 1 的 `NtQueryKey` (查询) 更能代表核心操作。",
+    "候选 1 的 `conclusion` 字段缺少了代码片段两侧的方括号 `[]`，不符合最新的格式规范。",
+    "候选 1 的 `L1` 调用链 `ssl.enum_certificates(\"ROOT\") → _ssl.cert_store_enum_certificates → CryptEnumCertificatesInStore → NtQueryKey` 包含了 3 个箭头（3跳），违反了“最多 2 跳”的核心约束。",
+    "候选 1 的 `L1` 调用链中间层过于具体，不如候选 2 的 `Windows CryptoAPI` 抽象层次得当，后者更符合对“库函数/运行时机制”的定义。",
+    "候选 1 的 `F2` 理由 \"系统调用用于查询注册表键信息\" 只是对 F1 的重复，没有解释为何属于 A 类（I/O 操作），信息量较低。"
+  ],
+  "judge_best": "{ \"conclusion\": \"代码行[certs = ssl.enum_certificates(\\\"ROOT\\\")]最可能触发或产生该系统调用\", \"facts\": { \"F1\": { \"syscall\": \"NtEnumerateKey\", \"summary\": \"枚举指定注册表项的子项。\" }, \"F2\": { \"option\": \"A\", \"reason\": \"该调用用于访问Windows注册表，属于广义I/O。\" }, \"F3\": \"枚举注册表子项\" }, \"logic\": { \"L1\": \"ssl.enum_certificates(\\\"ROOT\\\") → Windows CryptoAPI → NtEnumerateKey\", \"L2\": { \"option\": \"D\", \"reason\": \"crls = ssl.enum_crls(\\\"ROOT\\\")也会执行类似的注册表枚举操作。\" }, \"L3\": { \"option\": \"A\", \"reason\": \"该函数调用是无条件的，执行时即触发。\" } } }"
+}

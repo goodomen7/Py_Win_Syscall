@@ -3,8 +3,8 @@
   "library": "uuid",
   "target_line": "result = uuid6_std()\n        result = uuid6_pkg()",
   "target_syscall": "NtCreateFile",
-  "num_models_answered": 11,
-  "num_models_scored": 10,
+  "num_models_answered": 14,
+  "num_models_scored": 12,
   "has_best_answer": true,
   "has_scores": true
 }

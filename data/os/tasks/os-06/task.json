@@ -3,8 +3,8 @@
   "library": "os",
   "target_line": "os.fchmod(fd, 0o644)",
   "target_syscall": "NtSetInformationFile",
-  "num_models_answered": 11,
-  "num_models_scored": 10,
+  "num_models_answered": 14,
+  "num_models_scored": 12,
   "has_best_answer": true,
   "has_scores": true
 }

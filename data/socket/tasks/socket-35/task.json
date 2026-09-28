@@ -3,8 +3,8 @@
   "library": "socket",
   "target_line": "c.sendall(b\"hello world \" * 100)",
   "target_syscall": "NtDeviceIoControlFile",
-  "num_models_answered": 11,
-  "num_models_scored": 8,
+  "num_models_answered": 14,
+  "num_models_scored": 13,
   "has_best_answer": true,
   "has_scores": true
 }

@@ -3,8 +3,8 @@
   "library": "os",
   "target_line": "data = os.read(fd, 11)",
   "target_syscall": "NtReadFile",
-  "num_models_answered": 11,
-  "num_models_scored": 7,
+  "num_models_answered": 14,
+  "num_models_scored": 11,
   "has_best_answer": true,
   "has_scores": true
 }

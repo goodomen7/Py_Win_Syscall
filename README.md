@@ -14,15 +14,16 @@ syscall and why. Model answers are then scored node-by-node by a judge model.
 | --- | --- |
 | Standard-library modules | 9 |
 | Tasks | 113 |
-| Tasks with curated best answer + judge scores | 105 |
-| Models evaluated | 11 |
+| Tasks with curated best answer + judge scores | 113 |
+| Models evaluated | 14 |
 
 **Modules:** `mmap`, `msvcrt`, `multiprocessing`, `os`, `signal`, `socket`,
 `ssl`, `time`, `uuid`
 
-**Models evaluated:** ERNIE-3.5-8K, claude-opus-4-7, claude-sonnet-4-6,
-deepseek-v3.2, doubao-seed-2-0-lite-260215, gemini-2.5-pro,
-gemini-3-pro-preview-thinking, glm-4, gpt-5.2, gpt-5.5, grok-4-20-reasoning
+**Models evaluated:** claude-opus-4-7, claude-opus-4.6, deepseek-v3.2,
+gemini-2.5-pro, gemini-3.1-pro-preview, gemini-3.1-pro-preview-thinking,
+glm-5, gpt-5-codex, gpt-5.2, gpt-5.5, llama-3.3-70b-instruct,
+qwen3-coder-30b-a3b-instruct, qwen3.5-27b, qwen3.6-27b
 
 (See [`metadata.json`](metadata.json) for the authoritative list and per-module
 counts in each [`data/<module>/metadata.json`](data).)
@@ -63,9 +64,8 @@ py-windows-syscall-bench/
                     └── trace.txt         # raw, full syscall trace
 ```
 
-\* `best.json`, `selection.json`, and `scores.jsonl` are present for the 105
-fully-processed tasks. The remaining 8 tasks ship with inputs, candidate answers,
-and model predictions only. Each task's `task.json` records `has_best_answer` and
+\* `best.json`, `selection.json`, and `scores.jsonl` are present for all 113
+tasks in this release. Each task's `task.json` records `has_best_answer` and
 `has_scores` so consumers can filter.
 
 ## Reproducing the layout

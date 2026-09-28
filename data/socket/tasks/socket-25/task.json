@@ -3,8 +3,8 @@
   "library": "socket",
   "target_line": "peer = c.getpeername()",
   "target_syscall": "NtDeviceIoControlFile",
-  "num_models_answered": 11,
-  "num_models_scored": 9,
+  "num_models_answered": 14,
+  "num_models_scored": 12,
   "has_best_answer": true,
   "has_scores": true
 }

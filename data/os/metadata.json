@@ -1,8 +1,8 @@
 {
   "library": "os",
   "num_tasks": 36,
-  "num_scored_tasks": 35,
-  "num_tasks_with_best_answer": 35,
+  "num_scored_tasks": 36,
+  "num_tasks_with_best_answer": 36,
   "tasks": [
     "os-01",
     "os-02",
