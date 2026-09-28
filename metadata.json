@@ -1,6 +1,6 @@
 {
   "name": "py-windows-syscall-bench",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Benchmark for evaluating LLM chain-of-thought reasoning that links a Python source line to the Windows native syscall it triggers, judged against curated ground truth.",
   "task_format": {
     "input": "Curated prompt unit: target code line, surrounding context, and syscall trace.",
