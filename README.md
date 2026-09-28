@@ -1,7 +1,5 @@
 # py-windows-syscall-bench
 
-**English** | [中文](README.zh.md)
-
 A benchmark for evaluating **LLM chain-of-thought (CoT) reasoning** that links a
 single Python source line to the **Windows native system call** it triggers, and
 judges the reasoning against curated ground truth.
@@ -69,71 +67,6 @@ py-windows-syscall-bench/
 fully-processed tasks. The remaining 8 tasks ship with inputs, candidate answers,
 and model predictions only. Each task's `task.json` records `has_best_answer` and
 `has_scores` so consumers can filter.
-
-## Ground-truth source map (`reference/`)
-
-[`reference/`](reference) holds the static, hand-curated mapping from a Python
-stdlib function to the Windows native syscalls (`Nt*`) it can theoretically
-reach — the ground-truth *source* the per-task data is validated against. It is
-broader than the scored set (12 modules incl. `select`, `winreg`, `winsound`).
-See [`reference/README.md`](reference/README.md). Primary form, one record per
-function in [`reference/ground_truth.jsonl`](reference/ground_truth.jsonl):
-
-```json
-{"id": "os-02", "library": "os", "function": "os.chdir",
- "syscalls": [{"name": "NtOpenFile", "condition": null},
-              {"name": "NtQueryVolumeInformationFile", "condition": null},
-              {"name": "NtClose", "condition": null}],
- "source": "系统调用统计_windows_os库.md"}
-```
-
-## File formats
-
-### `task.json`
-```json
-{
-  "task_id": "mmap-01",
-  "library": "mmap",
-  "target_line": "m_anon = mmap.mmap(-1, 4096)",
-  "target_syscall": "NtCreateSection",
-  "num_models_answered": 11,
-  "num_models_scored": 11,
-  "has_best_answer": true,
-  "has_scores": true
-}
-```
-
-### `ground_truth/best.json` (and each line of `candidates.jsonl`)
-The expected CoT answer, structured as facts (`F1`–`F3`) and logic (`L1`–`L3`):
-```json
-{
-  "conclusion": "代码行[m_anon = mmap.mmap(-1, 4096)]最可能触发或产生该系统调用",
-  "facts": {
-    "F1": {"syscall": "NtCreateSection", "summary": "创建内存区段用于映射"},
-    "F2": {"option": "B", "reason": "匿名映射创建内存区段"},
-    "F3": "创建区段对象"
-  },
-  "logic": {
-    "L1": "mmap.mmap(-1, 4096) → Python mmap 模块创建匿名映射 → NtCreateSection",
-    "L2": {"option": "A", "reason": "创建匿名mmap需创建section对象"},
-    "L3": {"option": "A", "reason": "调用mmap构造即会立即创建映射"}
-  }
-}
-```
-
-### `predictions.jsonl` (one line per model)
-```json
-{"model": "claude-opus-4-7", "ok": true, "latency_s": 6.76, "error": null, "raw": "{...model answer JSON as a string...}"}
-```
-
-### `scores.jsonl` (one line per model)
-Per-node `Correct`/`Incorrect` judgements with evidence, over the seven nodes
-`Conclusion`, `F1`, `F2`, `F3`, `L1`, `L2`, `L3`:
-```json
-{"sample_id": "sample01", "target_model": "grok-4-20-reasoning",
- "final": {"final_node_scores": {"Conclusion": "Incorrect", "F1": "Incorrect", "F2": "Correct", "...": "..."},
-           "final_evidence": {"...": {"model_quote": ["..."], "gt_clause_hit": ["..."], "reason": "..."}}}}
-```
 
 ## Reproducing the layout
 

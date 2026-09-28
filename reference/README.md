@@ -35,7 +35,7 @@ It is broader than the evaluation set: it currently covers **12 modules**
     {"name": "NtQueryVolumeInformationFile", "condition": null},
     {"name": "NtClose", "condition": null}
   ],
-  "source": "系统调用统计_windows_os库.md"
+  "source": "syscall-map_windows_os.md"
 }
 ```
 
@@ -104,7 +104,7 @@ Python 标准库函数在理论上会触达的 Windows 原生系统调用(`Nt*`)
     {"name": "NtQueryVolumeInformationFile", "condition": null},
     {"name": "NtClose", "condition": null}
   ],
-  "source": "系统调用统计_windows_os库.md"
+  "source": "syscall-map_windows_os.md"
 }
 ```
 
